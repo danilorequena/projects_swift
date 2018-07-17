@@ -1,0 +1,426 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9FE4F3F41B82BEF500674744 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE4F3F31B82BEF500674744 /* AppDelegate.swift */; };
+		9FE4F3F61B82BEF500674744 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE4F3F51B82BEF500674744 /* ViewController.swift */; };
+		9FE4F3F91B82BEF500674744 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FE4F3F71B82BEF500674744 /* Main.storyboard */; };
+		9FE4F3FB1B82BEF500674744 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FE4F3FA1B82BEF500674744 /* Images.xcassets */; };
+		9FE4F3FE1B82BEF500674744 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FE4F3FC1B82BEF500674744 /* LaunchScreen.xib */; };
+		9FE4F40A1B82BEF500674744 /* ColorPasswordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE4F4091B82BEF500674744 /* ColorPasswordTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9FE4F4041B82BEF500674744 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9FE4F3E61B82BEF500674744 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9FE4F3ED1B82BEF500674744;
+			remoteInfo = ColorPassword;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9FE4F3EE1B82BEF500674744 /* ColorPassword.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorPassword.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FE4F3F21B82BEF500674744 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9FE4F3F31B82BEF500674744 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9FE4F3F51B82BEF500674744 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9FE4F3F81B82BEF500674744 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9FE4F3FA1B82BEF500674744 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		9FE4F3FD1B82BEF500674744 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		9FE4F4031B82BEF500674744 /* ColorPasswordTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ColorPasswordTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FE4F4081B82BEF500674744 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9FE4F4091B82BEF500674744 /* ColorPasswordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPasswordTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9FE4F3EB1B82BEF500674744 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FE4F4001B82BEF500674744 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9FE4F3E51B82BEF500674744 = {
+			isa = PBXGroup;
+			children = (
+				9FE4F3F01B82BEF500674744 /* ColorPassword */,
+				9FE4F4061B82BEF500674744 /* ColorPasswordTests */,
+				9FE4F3EF1B82BEF500674744 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9FE4F3EF1B82BEF500674744 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9FE4F3EE1B82BEF500674744 /* ColorPassword.app */,
+				9FE4F4031B82BEF500674744 /* ColorPasswordTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9FE4F3F01B82BEF500674744 /* ColorPassword */ = {
+			isa = PBXGroup;
+			children = (
+				9FE4F3F31B82BEF500674744 /* AppDelegate.swift */,
+				9FE4F3F51B82BEF500674744 /* ViewController.swift */,
+				9FE4F3F71B82BEF500674744 /* Main.storyboard */,
+				9FE4F3FA1B82BEF500674744 /* Images.xcassets */,
+				9FE4F3FC1B82BEF500674744 /* LaunchScreen.xib */,
+				9FE4F3F11B82BEF500674744 /* Supporting Files */,
+			);
+			path = ColorPassword;
+			sourceTree = "<group>";
+		};
+		9FE4F3F11B82BEF500674744 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9FE4F3F21B82BEF500674744 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9FE4F4061B82BEF500674744 /* ColorPasswordTests */ = {
+			isa = PBXGroup;
+			children = (
+				9FE4F4091B82BEF500674744 /* ColorPasswordTests.swift */,
+				9FE4F4071B82BEF500674744 /* Supporting Files */,
+			);
+			path = ColorPasswordTests;
+			sourceTree = "<group>";
+		};
+		9FE4F4071B82BEF500674744 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9FE4F4081B82BEF500674744 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9FE4F3ED1B82BEF500674744 /* ColorPassword */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9FE4F40D1B82BEF500674744 /* Build configuration list for PBXNativeTarget "ColorPassword" */;
+			buildPhases = (
+				9FE4F3EA1B82BEF500674744 /* Sources */,
+				9FE4F3EB1B82BEF500674744 /* Frameworks */,
+				9FE4F3EC1B82BEF500674744 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ColorPassword;
+			productName = ColorPassword;
+			productReference = 9FE4F3EE1B82BEF500674744 /* ColorPassword.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9FE4F4021B82BEF500674744 /* ColorPasswordTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9FE4F4101B82BEF500674744 /* Build configuration list for PBXNativeTarget "ColorPasswordTests" */;
+			buildPhases = (
+				9FE4F3FF1B82BEF500674744 /* Sources */,
+				9FE4F4001B82BEF500674744 /* Frameworks */,
+				9FE4F4011B82BEF500674744 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9FE4F4051B82BEF500674744 /* PBXTargetDependency */,
+			);
+			name = ColorPasswordTests;
+			productName = ColorPasswordTests;
+			productReference = 9FE4F4031B82BEF500674744 /* ColorPasswordTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9FE4F3E61B82BEF500674744 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = "Danilo Requena";
+				TargetAttributes = {
+					9FE4F3ED1B82BEF500674744 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					9FE4F4021B82BEF500674744 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = 9FE4F3ED1B82BEF500674744;
+					};
+				};
+			};
+			buildConfigurationList = 9FE4F3E91B82BEF500674744 /* Build configuration list for PBXProject "ColorPassword" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9FE4F3E51B82BEF500674744;
+			productRefGroup = 9FE4F3EF1B82BEF500674744 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9FE4F3ED1B82BEF500674744 /* ColorPassword */,
+				9FE4F4021B82BEF500674744 /* ColorPasswordTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9FE4F3EC1B82BEF500674744 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9FE4F3F91B82BEF500674744 /* Main.storyboard in Resources */,
+				9FE4F3FE1B82BEF500674744 /* LaunchScreen.xib in Resources */,
+				9FE4F3FB1B82BEF500674744 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FE4F4011B82BEF500674744 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9FE4F3EA1B82BEF500674744 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9FE4F3F61B82BEF500674744 /* ViewController.swift in Sources */,
+				9FE4F3F41B82BEF500674744 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FE4F3FF1B82BEF500674744 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9FE4F40A1B82BEF500674744 /* ColorPasswordTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9FE4F4051B82BEF500674744 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9FE4F3ED1B82BEF500674744 /* ColorPassword */;
+			targetProxy = 9FE4F4041B82BEF500674744 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9FE4F3F71B82BEF500674744 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9FE4F3F81B82BEF500674744 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9FE4F3FC1B82BEF500674744 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9FE4F3FD1B82BEF500674744 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9FE4F40B1B82BEF500674744 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9FE4F40C1B82BEF500674744 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9FE4F40E1B82BEF500674744 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ColorPassword/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		9FE4F40F1B82BEF500674744 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ColorPassword/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		9FE4F4111B82BEF500674744 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ColorPasswordTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ColorPassword.app/ColorPassword";
+			};
+			name = Debug;
+		};
+		9FE4F4121B82BEF500674744 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ColorPasswordTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ColorPassword.app/ColorPassword";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9FE4F3E91B82BEF500674744 /* Build configuration list for PBXProject "ColorPassword" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9FE4F40B1B82BEF500674744 /* Debug */,
+				9FE4F40C1B82BEF500674744 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9FE4F40D1B82BEF500674744 /* Build configuration list for PBXNativeTarget "ColorPassword" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9FE4F40E1B82BEF500674744 /* Debug */,
+				9FE4F40F1B82BEF500674744 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		9FE4F4101B82BEF500674744 /* Build configuration list for PBXNativeTarget "ColorPasswordTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9FE4F4111B82BEF500674744 /* Debug */,
+				9FE4F4121B82BEF500674744 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9FE4F3E61B82BEF500674744 /* Project object */;
+}
