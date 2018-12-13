@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         
     let localBurguer = localBurguerField.text!
     let nameBurguer = nameBurguerField!.text!
-    let happinessComents: String
+    //let happinessComents: String
        
         if let avaliation = Int(avaliationField!.text!){
     let meal = Meal(name: nameBurguer, happiness: avaliation)
