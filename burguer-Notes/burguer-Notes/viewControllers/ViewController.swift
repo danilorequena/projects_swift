@@ -16,6 +16,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var avaliationField: UITextField?
     @IBOutlet weak var show: UILabel!
     
+    var mealsTable : MealsTableViewController?
+    
     
     
     
@@ -33,9 +35,24 @@ class ViewController: UIViewController {
         if let avaliation = Int(avaliationField!.text!){
     let meal = Meal(name: nameBurguer, happiness: avaliation)
        
+            if (mealsTable == nil) {
+                return
+            }
+            
+            mealsTable!.add(meal: meal)
+            
             show.text = "Aqui no \(localBurguer), comi o hamburguer \(meal.name), e a nota que dou a ele é \(meal.happiness)"
             
              print ("Aqui no \(localBurguer), comi o hamburguer \(meal.name), e a nota que dou a ele é \(meal.happiness)")
+            
+           
+          
+            
+//            navigationController?.popViewController(animated: true) -->  nesse caso tem o optional, o jeito abaixo é o modo seguro
+            
+            if let navigation = navigationController {
+            navigation.popViewController(animated: true)
+            }
         
         
         
