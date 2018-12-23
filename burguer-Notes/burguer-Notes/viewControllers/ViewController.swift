@@ -18,19 +18,27 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var delegate : MealsTableViewController?
     
+    var selected = Array<item>()
+    
     var itens = [
-        item(name: "Cheese Burguer", calories: 300, size: "Medium"),
-        item(name: "Salad Burguer", calories: 250, size: "Small"),
-        item(name: "Big Burguer", calories: 1000, size: "Big"),
-        item(name: "Vegan Burguer", calories: 200, size: "Medium")
+        item(name: "Cheese", calories: 40, size: "Small"),
+        item(name: "Burguer", calories: 150, size: "medium"),
+        item(name: "Salad", calories: 20, size: "Small"),
+        item(name: "Bacon", calories: 100, size: "Medium")
     ]
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) {
             if (cell.accessoryType == UITableViewCell.AccessoryType.none){
                 cell.accessoryType = UITableViewCell.AccessoryType.checkmark
+                let item = itens[indexPath.row]
+                selected.append(item)
         } else {
             cell.accessoryType = UITableViewCell.AccessoryType.none
+                let item = itens[indexPath.row]
+                if let position = selected.index(of: item){
+                    selected.remove(at: position)
+                }
             }
         }
     }
@@ -59,7 +67,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     //let happinessComents: String
        
         if let avaliation = Int(avaliationField!.text!){
-    let meal = Meal(name: nameBurguer, happiness: avaliation)
+            let meal = Meal(name: nameBurguer, happiness: avaliation, items: selected)
+            
+            print ("Aqui no \(localBurguer), comi o hamburguer \(meal.name), e a nota que dou a ele é \(meal.happiness) com os itens \(meal.items)")
        
             if (delegate == nil) {
                 return
@@ -69,7 +79,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             
             show.text = "Aqui no \(localBurguer), comi o hamburguer \(meal.name), e a nota que dou a ele é \(meal.happiness)"
             
-             print ("Aqui no \(localBurguer), comi o hamburguer \(meal.name), e a nota que dou a ele é \(meal.happiness)")
+            
             
            
           

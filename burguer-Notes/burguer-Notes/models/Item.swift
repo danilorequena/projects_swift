@@ -2,7 +2,7 @@
 
 import Foundation
 
-class item {
+class item: Equatable {
     let name: String
     var calories: Double
     var size: String
@@ -12,4 +12,10 @@ class item {
         self.calories = calories
         self.size = size
     }
+}
+
+func ==(first:item, second:item) -> Bool{
+    
+    return first.name == second.name && first.calories == second.calories
+    
 }
