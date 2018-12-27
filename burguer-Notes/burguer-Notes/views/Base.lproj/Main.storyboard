@@ -93,6 +93,7 @@
                         <outlet property="localBurguerField" destination="tZU-Ai-jg7" id="2zh-0B-Jtv"/>
                         <outlet property="nameBurguerField" destination="cuP-p8-zcR" id="Za9-fj-tCz"/>
                         <outlet property="show" destination="avo-PS-guR" id="t9G-2Y-Ci9"/>
+                        <outlet property="tableview" destination="qjf-7s-RxL" id="rkk-sl-6Sj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

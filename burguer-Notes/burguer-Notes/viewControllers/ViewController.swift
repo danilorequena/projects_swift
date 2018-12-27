@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AddAnItemDelegate {
 
     
     @IBOutlet weak var localBurguerField: UITextField!
@@ -26,6 +26,28 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         item(name: "Salad", calories: 20, size: "Small"),
         item(name: "Bacon", calories: 100, size: "Medium")
     ]
+    
+    @IBOutlet var tableview:UITableView?
+    
+    func add(_ item: item) {
+        itens.append(item)
+        if let table = tableview {
+            table.reloadData()
+        }
+    }
+    
+    override func viewDidLoad() {
+        let newButtonItem = UIBarButtonItem(title: "New Item", style: UIBarButtonItem.Style.plain, target: self, action: #selector(showNewItem))
+        navigationItem.rightBarButtonItem = newButtonItem
+    }
+    
+    @objc func showNewItem() {
+        
+      let newItem = NewItemViewController(delegate: self)
+        if let navigation = navigationController {
+            navigation.pushViewController(newItem, animated: true)
+        }
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) {
