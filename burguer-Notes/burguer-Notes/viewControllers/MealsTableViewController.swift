@@ -46,8 +46,13 @@ class MealsTableViewController : UITableViewController {
          if let indexPath = tableView.indexPath(for: cell) {
             let row = indexPath.row
             let meal = meals[row]
+           
+            let details = UIAlertController(title: meal.name, message: "Happines: \(meal.happiness)", preferredStyle: UIAlertController.Style.alert )
+            let ok = UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler: nil)
+            details.addAction(ok)
             
-            print("Long press... \(meal.name)")
+            present(details, animated: true, completion: nil)
+           
             }
             
         }
