@@ -31,9 +31,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func add(_ item: item) {
         itens.append(item)
-        if let table = tableview {
-            table.reloadData()
-        }
+        tableview?.reloadData()
+        
+//        if let table = tableview {
+//            table.reloadData()
+//        }
     }
     
     override func viewDidLoad() {
@@ -44,9 +46,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @objc func showNewItem() {
         
       let newItem = NewItemViewController(delegate: self)
-        if let navigation = navigationController {
-            navigation.pushViewController(newItem, animated: true)
-        }
+        navigationController?.pushViewController(newItem, animated: true)
+        
+//        if let navigation = navigationController {
+//            navigation.pushViewController(newItem, animated: true)
+//        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
