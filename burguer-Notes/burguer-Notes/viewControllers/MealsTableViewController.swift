@@ -48,8 +48,17 @@ class MealsTableViewController : UITableViewController {
             let meal = meals[row]
             
             let details = UIAlertController(title: meal.name, message: meal.details(), preferredStyle: UIAlertController.Style.alert )
-            let ok = UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler: nil)
-            details.addAction(ok)
+            
+            func removeSelected(action: UIAlertAction) {
+                print("Item removido foi \(meal.name).")
+                meals.remove(at: row)
+                tableView.reloadData()
+            }
+            
+            let remove = UIAlertAction(title: "Remove", style: UIAlertAction.Style.destructive, handler: removeSelected)
+            details.addAction(remove)
+            let cancel = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil)
+            details.addAction(cancel)
             
             present(details, animated: true, completion: nil)
            
@@ -59,6 +68,8 @@ class MealsTableViewController : UITableViewController {
         
         
     }
+    
+    
 }
 
 
