@@ -31,11 +31,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func add(_ item: item) {
         itens.append(item)
-        tableview?.reloadData()
+        if let table = tableview {
+            table.reloadData()
+        } else {
+           Alert(controller: self).show()
+        }
         
-//        if let table = tableview {
-//            table.reloadData()
-//        }
+        //        tableview?.reloadData() -> Esse optional Chaining "?" Funciona como se fosse um If mas sem um else
+        
+
     }
     
     override func viewDidLoad() {
@@ -48,9 +52,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
       let newItem = NewItemViewController(delegate: self)
         navigationController?.pushViewController(newItem, animated: true)
         
-//        if let navigation = navigationController {
-//            navigation.pushViewController(newItem, animated: true)
-//        }
+        if let navigation = navigationController {
+            navigation.pushViewController(newItem, animated: true)
+        } else {
+            Alert(controller: self).show(message: "Algo deu errado")
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -81,50 +87,56 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     }
     
+    
+    func convertToInt( _ text:String?) -> Int? {
+        if let number = text {
+            return Int(number)
+    }
+        return nil
+    }
+    
+    
+    func getFromForm() -> Meal? {
+        if let name = nameBurguerField?.text {
+            if let happiness = convertToInt(avaliationField?.text) {
+                let meal = Meal(name: name, happiness: happiness, items: selected)
+                
+                print ("Comi o hamburguer \(meal.name), e a nota que dou a ele é \(meal.happiness) com os itens \(meal.items)")
+                return meal
+            }
+        }
+        return nil
+    }
+    
     @IBAction func add() {
     
-        if (localBurguerField == nil || nameBurguerField == nil || avaliationField == nil) {
-            
-            return
-        }
-        
-    let localBurguer = localBurguerField.text!
-    let nameBurguer = nameBurguerField!.text!
-    //let happinessComents: String
-       
-        if let avaliation = Int(avaliationField!.text!){
-            let meal = Meal(name: nameBurguer, happiness: avaliation, items: selected)
-            
-            print ("Aqui no \(localBurguer), comi o hamburguer \(meal.name), e a nota que dou a ele é \(meal.happiness) com os itens \(meal.items)")
-       
-            if (delegate == nil) {
-                return
+        if let meal = getFromForm() {
+            if let meals = delegate {
+            meals.add(meal: meal)
+                if let navigation = navigationController {
+                navigation.popViewController(animated: true)
+                    return
+                } else {
+                    Alert(controller: self).show()
+                   
+                }
+                 return
+                
             }
             
-            delegate!.add(meal: meal)
+            Alert(controller: self).show()
             
-            show.text = "Aqui no \(localBurguer), comi o hamburguer \(meal.name), e a nota que dou a ele é \(meal.happiness)"
-            
-            
-            
-           
-          
-            
+        }
+       
+//            show.text = "Aqui no \(localBurguer), comi o hamburguer \(meal.name), e a nota que dou a ele é \(meal.happiness)"
 //            navigationController?.popViewController(animated: true) -->  nesse caso tem o optional, o jeito abaixo é o modo seguro
             
-            if let navigation = navigationController {
-            navigation.popViewController(animated: true)
-            }
-        
-        
-        
-            
-    view.endEditing(true)
+        view.endEditing(true)
         
         }
         
     }
 
 
-}
+
 
