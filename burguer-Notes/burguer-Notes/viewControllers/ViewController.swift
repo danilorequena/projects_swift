@@ -134,6 +134,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         view.endEditing(true)
         
         }
+    
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
         
     }
 
