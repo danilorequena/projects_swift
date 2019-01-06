@@ -47,22 +47,10 @@ class MealsTableViewController : UITableViewController {
             let row = indexPath.row
             let meal = meals[row]
             
-            let details = UIAlertController(title: meal.name, message: meal.details(), preferredStyle: UIAlertController.Style.alert )
-            
-//            func removeSelected(action: UIAlertAction) {
-//                meals.remove(at: row)
-//                tableView.reloadData()
-//            }
-            
-            let remove = UIAlertAction(title: "Remove", style: UIAlertAction.Style.destructive, handler: { action in
+            RemoveMealController(controller: self).show(meal, handler: { action in
                 self.meals.remove(at: row)
                 self.tableView.reloadData()
             })
-            details.addAction(remove)
-            let cancel = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil)
-            details.addAction(cancel)
-            
-            present(details, animated: true, completion: nil)
            
             }
             

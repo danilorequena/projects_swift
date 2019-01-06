@@ -16,6 +16,7 @@
 		FF2B3C0E21BBFB2200762D3C /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2B3C0D21BBFB2200762D3C /* Item.swift */; };
 		FF2B3C4C21C07BE100762D3C /* MealsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2B3C4B21C07BE100762D3C /* MealsTableViewController.swift */; };
 		FF50D1D221DC140D00DDCB5C /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF50D1D121DC140D00DDCB5C /* Alert.swift */; };
+		FF50D1D421E2C7BA00DDCB5C /* RemoveMealController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF50D1D321E2C7BA00DDCB5C /* RemoveMealController.swift */; };
 		FF985AF721C864D800CB7075 /* AddAMealDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF985AF621C864D800CB7075 /* AddAMealDelegate.swift */; };
 		FFCC6CD721D2CB13003E8AF5 /* NewItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCC6CD521D2CB13003E8AF5 /* NewItemViewController.swift */; };
 		FFCC6CD821D2CB13003E8AF5 /* NewItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFCC6CD621D2CB13003E8AF5 /* NewItemViewController.xib */; };
@@ -34,6 +35,7 @@
 		FF2B3C0D21BBFB2200762D3C /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		FF2B3C4B21C07BE100762D3C /* MealsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsTableViewController.swift; sourceTree = "<group>"; };
 		FF50D1D121DC140D00DDCB5C /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		FF50D1D321E2C7BA00DDCB5C /* RemoveMealController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveMealController.swift; sourceTree = "<group>"; };
 		FF985AF621C864D800CB7075 /* AddAMealDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAMealDelegate.swift; sourceTree = "<group>"; };
 		FFCC6CD521D2CB13003E8AF5 /* NewItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemViewController.swift; sourceTree = "<group>"; };
 		FFCC6CD621D2CB13003E8AF5 /* NewItemViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewItemViewController.xib; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				FF2B3C4B21C07BE100762D3C /* MealsTableViewController.swift */,
 				FF985AF621C864D800CB7075 /* AddAMealDelegate.swift */,
 				FFCC6CD521D2CB13003E8AF5 /* NewItemViewController.swift */,
+				FF50D1D321E2C7BA00DDCB5C /* RemoveMealController.swift */,
 			);
 			path = viewControllers;
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF50D1D421E2C7BA00DDCB5C /* RemoveMealController.swift in Sources */,
 				FF2B3C4C21C07BE100762D3C /* MealsTableViewController.swift in Sources */,
 				FFCC6CDA21D2F60E003E8AF5 /* AddAnItem.swift in Sources */,
 				FF2B3C0E21BBFB2200762D3C /* Item.swift in Sources */,
