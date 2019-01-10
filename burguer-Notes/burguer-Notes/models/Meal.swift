@@ -3,7 +3,7 @@
 import Foundation
 
 
-class Meal {
+class Meal: NSCoding {
     let name: String
     let happiness: Int
     //var happinessComents: String
@@ -20,6 +20,18 @@ class Meal {
         self.name = name
         self.happiness = happiness
         self.items = []
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.name = aDecoder.decodeObject(forKey: "name") as! String
+        self.happiness = aDecoder.decodeInteger(forKey: "happiness")
+        self.items = aDecoder.decodeObject(forKey: "items") as! Array
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(name, forKey: "name")
+        aCoder.encode(happiness, forKey: "happiness")
+        aCoder.encode(items, forKey: "items")
     }
     
     func allcalories() -> Double {
