@@ -12,7 +12,24 @@ class MealsTableViewController : UITableViewController {
     // adicionando elementos na tabela
     func add(meal:Meal) {
         meals.append(meal)
+        
+        
+        let userDirs = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
+        let dir = userDirs[0]
+        let archive = "\(dir)/burguer-NotesMeals.dados"
+        NSKeyedArchiver.archiveRootObject(meals, toFile: archive)
         tableView.reloadData()
+        
+        print("Save at: \(dir)")
+    }
+    
+    override func viewDidLoad() {
+        let userDirs = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
+        let dir = userDirs[0]
+        let archive = "\(dir)/burguer-NotesMeals.dados"
+        if let loaded = NSKeyedUnarchiver.unarchiveObject(withFile: archive) {
+        self.meals = loaded as! Array<Meal>
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

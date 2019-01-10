@@ -2,7 +2,7 @@
 
 import Foundation
 
-class item: Equatable, NSCoding {
+class item: NSObject, NSCoding {
     let name: String
     var calories: Double
     var size: String
