@@ -14,20 +14,20 @@ class MealsTableViewController : UITableViewController {
         meals.append(meal)
         
         
+       
+        NSKeyedArchiver.archiveRootObject(meals, toFile: getArchive())
+        tableView.reloadData()
+    }
+    
+    func getArchive() -> String {
         let userDirs = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
         let dir = userDirs[0]
         let archive = "\(dir)/burguer-NotesMeals.dados"
-        NSKeyedArchiver.archiveRootObject(meals, toFile: archive)
-        tableView.reloadData()
-        
-        print("Save at: \(dir)")
+        return archive
     }
     
     override func viewDidLoad() {
-        let userDirs = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
-        let dir = userDirs[0]
-        let archive = "\(dir)/burguer-NotesMeals.dados"
-        if let loaded = NSKeyedUnarchiver.unarchiveObject(withFile: archive) {
+        if let loaded = NSKeyedUnarchiver.unarchiveObject(withFile: getArchive()) {
         self.meals = loaded as! Array<Meal>
         }
     }
