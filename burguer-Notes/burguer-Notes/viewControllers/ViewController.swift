@@ -20,12 +20,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var selected = Array<item>()
     
-    var itens = [
-        item(name: "Cheese", calories: 40, size: "Small"),
-        item(name: "Burguer", calories: 150, size: "medium"),
-        item(name: "Salad", calories: 20, size: "Small"),
-        item(name: "Bacon", calories: 100, size: "Medium")
-    ]
+    var itens = Array<item>()
     
     @IBOutlet var tableview:UITableView?
     
@@ -38,11 +33,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func add(_ item: item) {
         itens.append(item)
+        Dao().saveItems(itens)
+        
         if let table = tableview {
             table.reloadData()
             
-        NSKeyedArchiver.archiveRootObject(itens, toFile: getArchive())
-            
+       itens = Dao().loadItems()
         } else {
            Alert(controller: self).show()
         }
@@ -56,9 +52,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let newButtonItem = UIBarButtonItem(title: "New Item", style: UIBarButtonItem.Style.plain, target: self, action: #selector(showNewItem))
         navigationItem.rightBarButtonItem = newButtonItem
         
-        if let loaded = NSKeyedUnarchiver.unarchiveObject(withFile: getArchive()) {
-            itens = loaded as! Array<item>
-        }
+        itens = Dao().loadItems()
     }
     
     @objc func showNewItem() {

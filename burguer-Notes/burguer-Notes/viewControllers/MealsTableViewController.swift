@@ -9,7 +9,7 @@ class MealsTableViewController : UITableViewController {
     // adicionando elementos na tabela
     func add(meal:Meal) {
         meals.append(meal)
-        Dao().saveMeals(meals: meals)
+        Dao().saveMeals(meals)
         tableView.reloadData()
     }
     
