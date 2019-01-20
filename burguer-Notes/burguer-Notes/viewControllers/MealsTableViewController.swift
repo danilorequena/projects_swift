@@ -4,32 +4,20 @@ import UIKit
 
 class MealsTableViewController : UITableViewController {
     
-    var meals = [Meal(name: "Oraculo Burguer", happiness: 10),
-                Meal(name: "Five Guy burguer", happiness: 10),
-                Meal(name: "Hard Rock Burguer", happiness: 8),
-                Meal(name: "Outback Burguer", happiness: 10)]
+    var meals = Array<Meal>()
     
     // adicionando elementos na tabela
     func add(meal:Meal) {
         meals.append(meal)
-        
-        
-       
-        NSKeyedArchiver.archiveRootObject(meals, toFile: getArchive())
+        Dao().saveMeals(meals: meals)
         tableView.reloadData()
     }
     
-    func getArchive() -> String {
-        let userDirs = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
-        let dir = userDirs[0]
-        let archive = "\(dir)/burguer-NotesMeals.dados"
-        return archive
-    }
+    
     
     override func viewDidLoad() {
-        if let loaded = NSKeyedUnarchiver.unarchiveObject(withFile: getArchive()) {
-        self.meals = loaded as! Array<Meal>
-        }
+        self.meals = Dao().loadMeals()
+       
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
