@@ -37,6 +37,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.labelCurrentDays.text = "\(currentTravel.numberOfDays) Dias"
         cell.travelImage.image = UIImage(named: currentTravel.imagePath)
         
+        cell.travelImage.layer.cornerRadius = 10
+        cell.travelImage.layer.masksToBounds = true
+        
         
         return cell
     }

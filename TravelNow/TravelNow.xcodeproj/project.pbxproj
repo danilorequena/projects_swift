@@ -60,17 +60,57 @@
 		FF57770D21F553970099DF5F /* TravelNow */ = {
 			isa = PBXGroup;
 			children = (
+				FF8FF54C21FA187D0038120E /* TravelDAO */,
+				FF8FF54921FA18290038120E /* Model */,
+				FF8FF54821FA181A0038120E /* Home */,
 				FF57771221F553970099DF5F /* Main.storyboard */,
-				FF57771021F553970099DF5F /* ViewController.swift */,
-				FFE7DC5821F8BE14007AEB2A /* Travel.swift */,
-				FF920AF021F8D80E0060EC9E /* TableViewCell.swift */,
-				FFE7DC5A21F8BFD7007AEB2A /* TravelDAO.swift */,
 				FF57770E21F553970099DF5F /* AppDelegate.swift */,
 				FF57771521F553990099DF5F /* Assets.xcassets */,
 				FF57771721F553990099DF5F /* LaunchScreen.storyboard */,
 				FF57771A21F553990099DF5F /* Info.plist */,
 			);
 			path = TravelNow;
+			sourceTree = "<group>";
+		};
+		FF8FF54821FA181A0038120E /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				FF8FF54A21FA184E0038120E /* Controllers */,
+				FF8FF54B21FA185A0038120E /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		FF8FF54921FA18290038120E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FFE7DC5821F8BE14007AEB2A /* Travel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FF8FF54A21FA184E0038120E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FF57771021F553970099DF5F /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		FF8FF54B21FA185A0038120E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FF920AF021F8D80E0060EC9E /* TableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FF8FF54C21FA187D0038120E /* TravelDAO */ = {
+			isa = PBXGroup;
+			children = (
+				FFE7DC5A21F8BFD7007AEB2A /* TravelDAO.swift */,
+			);
+			path = TravelDAO;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
