@@ -19,6 +19,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         self.travelTable.dataSource = self
+        self.travelTable.delegate = self
         self.viewHotels.layer.cornerRadius = 10
         self.viewPackages.layer.cornerRadius = 10
         
@@ -29,9 +30,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
         let currentTravel = travelList[indexPath.row]
-        cell.textLabel?.text = currentTravel.title
+        cell.labelTitle.text = currentTravel.title
+        cell.labelPrice.text = currentTravel.price
+        cell.labelCurrentDays.text = "\(currentTravel.numberOfDays) Dias"
+        cell.travelImage.image = UIImage(named: currentTravel.imagePath)
+        
         
         return cell
     }
