@@ -45,7 +45,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 175
+        if UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone {
+       
+            return 175
+        } else {
+            //UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad
+            return 250
+        }
     }
 
 
