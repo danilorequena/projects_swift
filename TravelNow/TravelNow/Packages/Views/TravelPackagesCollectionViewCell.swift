@@ -10,4 +10,7 @@ import UIKit
 
 class TravelPackagesCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var imageTravel: UIImageView!
+    @IBOutlet weak var labelTitle: UILabel!
+    
 }
