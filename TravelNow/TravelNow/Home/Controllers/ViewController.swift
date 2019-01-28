@@ -33,7 +33,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
         let currentTravel = travelList[indexPath.row]
         cell.labelTitle.text = currentTravel.title
-        cell.labelPrice.text = currentTravel.price
+        cell.labelPrice.text = "R$\(currentTravel.price)"
         cell.labelCurrentDays.text = "\(currentTravel.numberOfDays) Dias"
         cell.travelImage.image = UIImage(named: currentTravel.imagePath)
         
@@ -45,13 +45,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone {
-       
-            return 175
-        } else {
-            //UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad
+        switch UIDevice.current.userInterfaceIdiom {
+        case UIUserInterfaceIdiom.pad:
             return 250
+        default:
+            return 175
         }
+        
     }
 
 
