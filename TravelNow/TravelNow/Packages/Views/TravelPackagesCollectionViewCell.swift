@@ -12,5 +12,6 @@ class TravelPackagesCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imageTravel: UIImageView!
     @IBOutlet weak var labelTitle: UILabel!
-    
+    @IBOutlet weak var labelCurrentDays: UILabel!
+    @IBOutlet weak var labelPrice: UILabel!
 }
