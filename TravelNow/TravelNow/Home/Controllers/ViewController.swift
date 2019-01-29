@@ -23,6 +23,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.viewHotels.layer.cornerRadius = 10
         self.viewPackages.layer.cornerRadius = 10
         
+        
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -8,8 +8,9 @@
 
 import UIKit
 
-class TravelPackages: UIViewController, UICollectionViewDataSource {
+class TravelPackages: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
    
+    
     
     @IBOutlet weak var collectionPackages: UICollectionView!
     
@@ -18,6 +19,8 @@ class TravelPackages: UIViewController, UICollectionViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionPackages.dataSource = self
+        collectionPackages.delegate = self
+        
 
     }
     
@@ -38,6 +41,11 @@ class TravelPackages: UIViewController, UICollectionViewDataSource {
         packageCell.layer.borderColor = UIColor(red: 85.0/255.0, green: 85.0/255.0, blue: 85.0/255.0, alpha: 1.0).cgColor
         packageCell.layer.cornerRadius = 5
         return packageCell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let widthCell = collectionView.bounds.width / 2
+        return CGSize(width: widthCell - 15, height: 160)
     }
    
 
