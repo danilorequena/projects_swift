@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TravelPackages: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
+class TravelPackages: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
    
     
     
@@ -53,6 +53,12 @@ class TravelPackages: UIViewController, UICollectionViewDataSource, UICollection
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let widthCell = collectionView.bounds.width / 2
         return CGSize(width: widthCell - 15, height: 160)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyBoard.instantiateViewController(withIdentifier: "packagesDetails") as! TravelDetailsViewController
+        self.present(controller, animated: true, completion: nil)
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
