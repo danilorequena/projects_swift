@@ -9,7 +9,7 @@
 import Foundation
 
 class Travel: NSObject {
-    let title: String
+    @objc let title: String
     let numberOfDays: Int
     let price: String
     let imagePath: String

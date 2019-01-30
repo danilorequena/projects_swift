@@ -75,7 +75,9 @@
                                     <constraint firstAttribute="height" constant="145" id="fch-ks-jHw">
                                         <variation key="heightClass=regular-widthClass=regular" constant="250"/>
                                     </constraint>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="kPZ-ot-vTu" secondAttribute="trailing" constant="20" symbolic="YES" id="frL-mc-fBB"/>
                                     <constraint firstItem="nbo-5F-Dwp" firstAttribute="leading" secondItem="yvE-Wp-aS2" secondAttribute="leading" constant="39" id="g6N-1U-KxW"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="nbo-5F-Dwp" secondAttribute="trailing" constant="20" symbolic="YES" id="nc6-jg-QWK"/>
                                     <constraint firstItem="3bK-Mb-Tm2" firstAttribute="centerX" secondItem="yvE-Wp-aS2" secondAttribute="centerX" id="udb-WD-mnd"/>
                                     <constraint firstItem="nbo-5F-Dwp" firstAttribute="top" secondItem="3bK-Mb-Tm2" secondAttribute="bottom" constant="4" id="z8P-Lg-eIs"/>
                                 </constraints>
@@ -161,8 +163,10 @@
                                                 <constraint firstItem="r2l-AC-wW5" firstAttribute="top" secondItem="YQ0-AI-mEk" secondAttribute="bottom" constant="8" id="ME7-2f-HQ9"/>
                                                 <constraint firstItem="myu-Rn-Hid" firstAttribute="top" secondItem="Po8-KE-Ytn" secondAttribute="top" id="XLL-f7-Md9"/>
                                                 <constraint firstAttribute="trailing" secondItem="r2l-AC-wW5" secondAttribute="trailing" constant="13" id="d1q-Z9-Axv"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="myu-Rn-Hid" secondAttribute="trailing" constant="20" symbolic="YES" id="hSZ-DD-ubB"/>
                                                 <constraint firstItem="gEH-Hn-xv8" firstAttribute="top" secondItem="YQ0-AI-mEk" secondAttribute="bottom" constant="8" id="oUa-RP-7aI"/>
                                                 <constraint firstAttribute="bottom" secondItem="gEH-Hn-xv8" secondAttribute="bottom" constant="1.5" id="r23-zK-B7v"/>
+                                                <constraint firstItem="r2l-AC-wW5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gEH-Hn-xv8" secondAttribute="trailing" constant="8" symbolic="YES" id="urk-Qg-Kfh"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -256,17 +260,15 @@
                                         <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wSh-qZ-11y">
-                                        <rect key="frame" x="0.0" y="33" width="290" height="30"/>
+                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="jEE-yn-fdh">
+                                        <rect key="frame" x="0.0" y="33" width="290" height="35"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="73l-3o-M4w"/>
+                                            <constraint firstAttribute="height" constant="35" id="EFj-w0-QRZ"/>
                                         </constraints>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                    </searchBar>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6 pacotes encontrados" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jhD-jG-boQ">
-                                        <rect key="frame" x="0.0" y="66" width="290" height="30"/>
+                                        <rect key="frame" x="0.0" y="71" width="290" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="fNP-Wm-SoM"/>
                                         </constraints>
@@ -275,7 +277,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7YJ-oe-8yN">
-                                        <rect key="frame" x="0.0" y="99" width="290" height="400"/>
+                                        <rect key="frame" x="0.0" y="104" width="290" height="395"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Wle-tc-ZpF">
                                             <size key="itemSize" width="135" height="160"/>
@@ -355,6 +357,8 @@
                     <tabBarItem key="tabBarItem" title="packages" id="E4o-iD-U1H"/>
                     <connections>
                         <outlet property="collectionPackages" destination="7YJ-oe-8yN" id="A7p-aI-koW"/>
+                        <outlet property="labelNumberPackeges" destination="jhD-jG-boQ" id="fu4-pi-Fob"/>
+                        <outlet property="travelSearch" destination="jEE-yn-fdh" id="a4Z-je-xf9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lh4-Go-bK6" userLabel="First Responder" sceneMemberID="firstResponder"/>

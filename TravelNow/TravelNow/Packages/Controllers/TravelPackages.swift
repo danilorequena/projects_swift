@@ -8,18 +8,25 @@
 
 import UIKit
 
-class TravelPackages: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class TravelPackages: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
    
     
     
     @IBOutlet weak var collectionPackages: UICollectionView!
+    @IBOutlet weak var travelSearch: UISearchBar!
+    @IBOutlet weak var labelNumberPackeges: UILabel!
     
-    let travelList: Array<Travel> = TravelDAO().returnAllTravels()
+    let travelListAll: Array<Travel> = TravelDAO().returnAllTravels()
+    var travelList: Array<Travel> = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        travelList = travelListAll
         collectionPackages.dataSource = self
         collectionPackages.delegate = self
+        travelSearch.delegate = self
+        self.labelNumberPackeges.text = self.CountPackages()
+
         
 
     }
@@ -46,6 +53,23 @@ class TravelPackages: UIViewController, UICollectionViewDataSource, UICollection
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let widthCell = collectionView.bounds.width / 2
         return CGSize(width: widthCell - 15, height: 160)
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        travelList = travelListAll
+        if searchText != "" {
+            let travelListFilter = NSPredicate(format: "title contains %@", searchText)
+            let fiteredTravelList: Array<Travel> = (travelList as NSArray).filtered(using: travelListFilter) as! Array
+            travelList = fiteredTravelList
+        }
+        
+        self.labelNumberPackeges.text = self.CountPackages()
+        collectionPackages.reloadData()
+    }
+    
+    func CountPackages() -> String {
+       
+        return travelList.count == 1 ? "1 pacote encontrado" : "\(travelList.count) pacotes encontrados."
     }
    
 
