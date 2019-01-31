@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TravelPackages: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
+class TravelPackagesController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
    
     
     
@@ -16,8 +16,8 @@ class TravelPackages: UIViewController, UICollectionViewDataSource, UICollection
     @IBOutlet weak var travelSearch: UISearchBar!
     @IBOutlet weak var labelNumberPackeges: UILabel!
     
-    let travelListAll: Array<Travel> = TravelDAO().returnAllTravels()
-    var travelList: Array<Travel> = []
+    let travelListAll: Array<TravelPackages> = TravelPackagesDAO().returnAllTravels()
+    var travelList: Array<TravelPackages> = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,12 +37,13 @@ class TravelPackages: UIViewController, UICollectionViewDataSource, UICollection
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let packageCell = collectionView.dequeueReusableCell(withReuseIdentifier: "packageCell", for: indexPath) as! TravelPackagesCollectionViewCell
-        let currentTravel = travelList[indexPath.row]
         
-        packageCell.labelTitle.text = currentTravel.title
-        packageCell.labelPrice.text = "A partir de R$\(currentTravel.price)"
-        packageCell.labelCurrentDays.text = "\(currentTravel.numberOfDays) Dias"
-        packageCell.imageTravel.image = UIImage(named: currentTravel.imagePath)
+        let currentPackages = travelList[indexPath.row]
+        
+        packageCell.labelTitle.text = currentPackages.travel.title
+        packageCell.labelPrice.text = "A partir de R$\(currentPackages.travel.price)"
+        packageCell.labelCurrentDays.text = "\(currentPackages.travel.numberOfDays) Dias"
+        packageCell.imageTravel.image = UIImage(named: currentPackages.travel.imagePath)
         
         packageCell.layer.borderWidth = 0.5
         packageCell.layer.borderColor = UIColor(red: 85.0/255.0, green: 85.0/255.0, blue: 85.0/255.0, alpha: 1.0).cgColor
@@ -65,7 +66,7 @@ class TravelPackages: UIViewController, UICollectionViewDataSource, UICollection
         travelList = travelListAll
         if searchText != "" {
             let travelListFilter = NSPredicate(format: "title contains %@", searchText)
-            let fiteredTravelList: Array<Travel> = (travelList as NSArray).filtered(using: travelListFilter) as! Array
+            let fiteredTravelList: Array<TravelPackages> = (travelList as NSArray).filtered(using: travelListFilter) as! Array
             travelList = fiteredTravelList
         }
         
