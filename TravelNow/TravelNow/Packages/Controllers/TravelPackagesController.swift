@@ -57,8 +57,10 @@ class TravelPackagesController: UIViewController, UICollectionViewDataSource, UI
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let package = travelList[indexPath.item]
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyBoard.instantiateViewController(withIdentifier: "packagesDetails") as! TravelDetailsViewController
+        controller.selectedTravelPackage = package
         self.present(controller, animated: true, completion: nil)
     }
     

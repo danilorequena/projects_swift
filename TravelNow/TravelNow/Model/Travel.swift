@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class Travel: NSObject {
     @objc let title: String

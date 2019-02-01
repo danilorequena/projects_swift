@@ -516,6 +516,16 @@
                                     <constraint firstItem="zOr-OZ-LLj" firstAttribute="top" secondItem="4Q6-YL-DLJ" secondAttribute="bottom" constant="23" id="y0w-1N-01j"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bLY-xz-qJR">
+                                <rect key="frame" x="20" y="20" width="39" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="voltar">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="BackButton:" destination="ut2-iM-tqB" eventType="touchUpInside" id="Gcd-SF-GeX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -525,6 +535,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VRJ-xk-PVE"/>
                     </view>
+                    <connections>
+                        <outlet property="ImageTravelPackage" destination="a0F-3C-Tzi" id="zKS-CE-taf"/>
+                        <outlet property="backButton" destination="bLY-xz-qJR" id="Zvj-Am-PyS"/>
+                        <outlet property="labelDescriptionTravelPackage" destination="eSo-ts-rSh" id="xbj-c0-eem"/>
+                        <outlet property="labelPriceTravelPackages" destination="05t-UK-kUX" id="18l-dn-cmA"/>
+                        <outlet property="labelTitleTravelPackage" destination="4Q6-YL-DLJ" id="fTy-zT-D8d"/>
+                        <outlet property="labelTravelDate" destination="pPr-Z1-E90" id="N0B-b7-67z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5je-Lk-PbL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
