@@ -27,8 +27,7 @@ class TravelDetailsViewController: UIViewController {
             self.labelTitleTravelPackage.text = package.travel.title
             self.labelDescriptionTravelPackage.text = package.descriptionTravel
             self.labelPriceTravelPackages.text = package.travel.price
-            self.labelPriceTravelPackages.textColor = UIColor.green
-            self.labelTravelDate.text = package.travelDate
+            self.labelTravelDate.text = "válido para o período de: \(package.travelDate)"
         }
 
     }
