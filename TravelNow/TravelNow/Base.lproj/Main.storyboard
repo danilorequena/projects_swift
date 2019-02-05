@@ -562,12 +562,15 @@
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                        <connections>
+                                                            <action selector="TextFieldComeIntoFoccus:" destination="ut2-iM-tqB" eventType="editingDidBegin" id="yUZ-zi-rb6"/>
+                                                        </connections>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xB4-6p-NTv">
                                                         <rect key="frame" x="0.0" y="105" width="355.5" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kUF-Mv-fTF">
                                                         <rect key="frame" x="0.0" y="140" width="355.5" height="30"/>
@@ -626,6 +629,7 @@
                         <outlet property="labelTitleTravelPackage" destination="4Q6-YL-DLJ" id="fTy-zT-D8d"/>
                         <outlet property="labelTravelDate" destination="pPr-Z1-E90" id="N0B-b7-67z"/>
                         <outlet property="scrollMain" destination="rZU-WL-f5w" id="l1e-LF-Jg3"/>
+                        <outlet property="textFieldDate" destination="AUa-Rl-eZG" id="Pph-Eg-Ao1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5je-Lk-PbL" userLabel="First Responder" sceneMemberID="firstResponder"/>

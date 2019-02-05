@@ -19,6 +19,7 @@ class TravelDetailsViewController: UIViewController {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var finalizationButtonTravelPackage: UIButton!
     @IBOutlet weak var scrollMain: UIScrollView!
+    @IBOutlet weak var textFieldDate: UITextField!
     
     var selectedTravelPackage: TravelPackages? = nil
     
@@ -43,6 +44,20 @@ class TravelDetailsViewController: UIViewController {
     
     @IBAction func BackButton(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func ShowDateTextField(sender: UIDatePicker) {
+        let formater = DateFormatter()
+        formater.dateFormat = "MM/yyyy"
+        self.textFieldDate.text = formater.string(from: sender.date)
+    }
+    
+    @IBAction func TextFieldComeIntoFoccus(_ sender: UITextField) {
+        let datePickerView = UIDatePicker()
+        datePickerView.datePickerMode = .date
+        sender.inputView = datePickerView
+        datePickerView.addTarget(self, action: #selector(ShowDateTextField(sender:)), for: .valueChanged)
+        
     }
     
     
