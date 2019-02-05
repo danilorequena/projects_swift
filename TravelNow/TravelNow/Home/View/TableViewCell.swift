@@ -15,5 +15,15 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var labelPrice: UILabel!
     @IBOutlet weak var travelImage: UIImageView!
     
+    func ConfigureCell(travel: Travel) {
+        labelTitle.text = travel.title
+        labelPrice.text = "R$\(travel.price)"
+        labelCurrentDays.text = travel.numberOfDays == 1 ? "1 dia" : "\(travel.numberOfDays) Dias"
+        travelImage.image = UIImage(named: travel.imagePath)
+        
+        travelImage.layer.cornerRadius = 10
+        travelImage.layer.masksToBounds = true
+    }
+    
 
 }

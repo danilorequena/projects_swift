@@ -39,15 +39,9 @@ class TravelPackagesController: UIViewController, UICollectionViewDataSource, UI
         let packageCell = collectionView.dequeueReusableCell(withReuseIdentifier: "packageCell", for: indexPath) as! TravelPackagesCollectionViewCell
         
         let currentPackages = travelList[indexPath.row]
+        packageCell.ConfigureCell(travelPackage: currentPackages)
         
-        packageCell.labelTitle.text = currentPackages.travel.title
-        packageCell.labelPrice.text = "A partir de R$\(currentPackages.travel.price)"
-        packageCell.labelCurrentDays.text = "\(currentPackages.travel.numberOfDays) Dias"
-        packageCell.imageTravel.image = UIImage(named: currentPackages.travel.imagePath)
-        
-        packageCell.layer.borderWidth = 0.5
-        packageCell.layer.borderColor = UIColor(red: 85.0/255.0, green: 85.0/255.0, blue: 85.0/255.0, alpha: 1.0).cgColor
-        packageCell.layer.cornerRadius = 5
+       
         return packageCell
     }
     
@@ -67,9 +61,7 @@ class TravelPackagesController: UIViewController, UICollectionViewDataSource, UI
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         travelList = travelListAll
         if searchText != "" {
-            let travelListFilter = NSPredicate(format: "title contains %@", searchText)
-            let fiteredTravelList: Array<TravelPackages> = (travelList as NSArray).filtered(using: travelListFilter) as! Array
-            travelList = fiteredTravelList
+            travelList = travelList.filter({ $0.travel.title.contains(searchText) })
         }
         
         self.labelNumberPackeges.text = self.CountPackages()

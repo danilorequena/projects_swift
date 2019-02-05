@@ -34,14 +34,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
         let currentTravel = travelList[indexPath.row]
-        cell.labelTitle.text = currentTravel.title
-        cell.labelPrice.text = "R$\(currentTravel.price)"
-        cell.labelCurrentDays.text = "\(currentTravel.numberOfDays) Dias"
-        cell.travelImage.image = UIImage(named: currentTravel.imagePath)
-        
-        cell.travelImage.layer.cornerRadius = 10
-        cell.travelImage.layer.masksToBounds = true
-        
+        cell.ConfigureCell(travel: currentTravel)
         
         return cell
     }
