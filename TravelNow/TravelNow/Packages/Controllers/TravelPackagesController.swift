@@ -61,7 +61,7 @@ class TravelPackagesController: UIViewController, UICollectionViewDataSource, UI
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyBoard.instantiateViewController(withIdentifier: "packagesDetails") as! TravelDetailsViewController
         controller.selectedTravelPackage = package
-        self.present(controller, animated: true, completion: nil)
+        self.navigationController?.pushViewController(controller, animated: true)
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

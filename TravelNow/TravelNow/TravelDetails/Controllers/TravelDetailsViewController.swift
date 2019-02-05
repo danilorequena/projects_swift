@@ -43,7 +43,9 @@ class TravelDetailsViewController: UIViewController {
     }
     
     @IBAction func BackButton(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+        if let navigation = navigationController {
+        navigation.popViewController(animated: true)
+        }
     }
     
     @objc func ShowDateTextField(sender: UIDatePicker) {
@@ -60,6 +62,12 @@ class TravelDetailsViewController: UIViewController {
         
     }
     
+    @IBAction func ButtonFinalizationBuy(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "PaymentConfirmation") as! PaymentConfirmationViewController
+        controller.packagePurchased = selectedTravelPackage
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
     
 
 }

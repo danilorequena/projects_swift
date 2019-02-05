@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF15102B2209C36B009FA256 /* PaymentConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF15102A2209C36B009FA256 /* PaymentConfirmationViewController.swift */; };
 		FF57770F21F553970099DF5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF57770E21F553970099DF5F /* AppDelegate.swift */; };
 		FF57771121F553970099DF5F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF57771021F553970099DF5F /* ViewController.swift */; };
 		FF57771421F553970099DF5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF57771221F553970099DF5F /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FF15102A2209C36B009FA256 /* PaymentConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentConfirmationViewController.swift; sourceTree = "<group>"; };
 		FF57770B21F553970099DF5F /* TravelNow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelNow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF57770E21F553970099DF5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF57771021F553970099DF5F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -51,6 +53,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FF1510272209C308009FA256 /* PaymentConfirmation */ = {
+			isa = PBXGroup;
+			children = (
+				FF1510292209C328009FA256 /* Views */,
+				FF1510282209C31E009FA256 /* Controllers */,
+			);
+			path = PaymentConfirmation;
+			sourceTree = "<group>";
+		};
+		FF1510282209C31E009FA256 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FF15102A2209C36B009FA256 /* PaymentConfirmationViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		FF1510292209C328009FA256 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		FF57770221F553970099DF5F = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +101,7 @@
 				FF8FF54821FA181A0038120E /* Home */,
 				FFFB872B21FF72CD00B233DE /* Packages */,
 				FF82B1E22202106F00EDD6F6 /* TravelDetails */,
+				FF1510272209C308009FA256 /* PaymentConfirmation */,
 				FF57771221F553970099DF5F /* Main.storyboard */,
 				FF57770E21F553970099DF5F /* AppDelegate.swift */,
 				FF57771521F553990099DF5F /* Assets.xcassets */,
@@ -253,6 +280,7 @@
 				FFE7DC5921F8BE14007AEB2A /* Travel.swift in Sources */,
 				FFFB872F21FF73A100B233DE /* TravelPackagesController.swift in Sources */,
 				FF6F30FB220364D600C70AD6 /* TravelPackagesDAO.swift in Sources */,
+				FF15102B2209C36B009FA256 /* PaymentConfirmationViewController.swift in Sources */,
 				FF57771121F553970099DF5F /* ViewController.swift in Sources */,
 				FF82B1E62202118700EDD6F6 /* TravelDetailsViewController.swift in Sources */,
 				FF57770F21F553970099DF5F /* AppDelegate.swift in Sources */,
