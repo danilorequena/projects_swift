@@ -46,8 +46,14 @@ class TravelPackagesController: UIViewController, UICollectionViewDataSource, UI
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let widthCell = collectionView.bounds.width / 2
-        return CGSize(width: widthCell - 15, height: 160)
+//        let widthCell = collectionView.bounds.width / 2
+//        return CGSize(width: widthCell - 15, height: 160)
+        switch UIDevice.current.userInterfaceIdiom {
+        case .phone:
+           return CGSize(width: collectionView.bounds.width / 2 - 20, height: 160)
+        default:
+         return   CGSize(width: collectionView.bounds.width / 3 - 20, height: 250)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
