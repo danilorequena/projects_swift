@@ -60,6 +60,18 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate, NSFet
         }
         
     }
+    
+    @objc func openActionSheet(_ longPress: UILongPressGestureRecognizer) {
+        if longPress.state == .began {
+            let menu = MenuStudantOptions().configMenuStudantOptions { (option) in
+                switch option {
+                case .sms:
+                    print("SMS")
+                }
+            }
+            self.present(menu, animated: true, completion: nil)
+        }
+    }
 
     // MARK: - Table view data source
 
@@ -71,8 +83,10 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate, NSFet
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "celula-aluno", for: indexPath) as! HomeTableViewCell
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(openActionSheet(_:)))
         guard let aluno = managerResults?.fetchedObjects![indexPath.row] else { return cell }
         cell.configStudant(aluno)
+        cell.addGestureRecognizer(longPress)
         
 
         return cell
