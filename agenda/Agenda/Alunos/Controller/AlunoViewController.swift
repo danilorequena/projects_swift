@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class AlunoViewController: UIViewController, ImagePickerSelectedPhoto {
     
@@ -25,6 +26,11 @@ class AlunoViewController: UIViewController, ImagePickerSelectedPhoto {
     
     // MARK: - Atributes
     
+    var context: NSManagedObjectContext {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        return appDelegate.persistentContainer.viewContext
+    }
     let imagePicker = ImagePicker()
     
     // MARK: - View Lifecycle
@@ -62,15 +68,29 @@ class AlunoViewController: UIViewController, ImagePickerSelectedPhoto {
         imageAluno.image = picture
     }
     
+    func showMedia(_ option: MenuOptions) {
+        
+        let media = UIImagePickerController()
+        media.delegate = imagePicker
+        
+        if option == .camera && UIImagePickerController.isSourceTypeAvailable(.camera) {
+            media.sourceType = .camera
+        } else {
+             media.sourceType = .photoLibrary
+        }
+       
+        self.present(media, animated: true, completion: nil)
+            
+        
+    }
+    
     // MARK: - IBActions
     
     @IBAction func buttonFoto(_ sender: UIButton) {
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            let media = UIImagePickerController()
-            media.sourceType = .camera
-            media.delegate = imagePicker
-            self.present(media, animated: true, completion: nil)
+        let menu = ImagePicker().menuOptions { (option) in
+            self.showMedia(option)
         }
+        present(menu, animated: true, completion: nil)
         
     }
     
@@ -78,5 +98,21 @@ class AlunoViewController: UIViewController, ImagePickerSelectedPhoto {
         self.textFieldNota.text = "\(sender.value)"
     }
     
+    @IBAction func buttonSave(_ sender: UIButton) {
+        let aluno = Aluno(context: context)
+        aluno.nome = textFieldNome.text
+        aluno.endereco = textFieldEndereco.text
+        aluno.telefone = textFieldTelefone.text
+        aluno.site = textFieldSite.text
+        aluno.nota = (textFieldNota.text! as NSString).doubleValue
+        aluno.foto = imageAluno.image
+        
+        do {
+            try context.save()
+            navigationController?.popViewController(animated: true)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
     
 }
