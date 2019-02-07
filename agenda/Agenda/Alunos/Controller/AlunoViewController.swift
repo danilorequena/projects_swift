@@ -32,6 +32,7 @@ class AlunoViewController: UIViewController, ImagePickerSelectedPhoto {
         return appDelegate.persistentContainer.viewContext
     }
     let imagePicker = ImagePicker()
+    var aluno:Aluno?
     
     // MARK: - View Lifecycle
 
@@ -50,6 +51,14 @@ class AlunoViewController: UIViewController, ImagePickerSelectedPhoto {
     
     func setup() {
         imagePicker.delegate = self
+        guard let selectedStudant = aluno else { return }
+        textFieldNome.text = selectedStudant.nome
+        textFieldEndereco.text = selectedStudant.endereco
+        textFieldSite.text = selectedStudant.site
+        textFieldTelefone.text = selectedStudant.telefone
+        textFieldNota.text = "\(selectedStudant.nota)"
+        imageAluno.image = selectedStudant.foto as? UIImage
+        
     }
     
     func arredondaView() {
@@ -99,13 +108,16 @@ class AlunoViewController: UIViewController, ImagePickerSelectedPhoto {
     }
     
     @IBAction func buttonSave(_ sender: UIButton) {
-        let aluno = Aluno(context: context)
-        aluno.nome = textFieldNome.text
-        aluno.endereco = textFieldEndereco.text
-        aluno.telefone = textFieldTelefone.text
-        aluno.site = textFieldSite.text
-        aluno.nota = (textFieldNota.text! as NSString).doubleValue
-        aluno.foto = imageAluno.image
+//        let aluno = Aluno(context: context)
+        if aluno == nil {
+            aluno = Aluno(context: context)
+        }
+        aluno?.nome = textFieldNome.text
+        aluno?.endereco = textFieldEndereco.text
+        aluno?.telefone = textFieldTelefone.text
+        aluno?.site = textFieldSite.text
+        aluno?.nota = (textFieldNota.text! as NSString).doubleValue
+        aluno?.foto = imageAluno.image
         
         do {
             try context.save()

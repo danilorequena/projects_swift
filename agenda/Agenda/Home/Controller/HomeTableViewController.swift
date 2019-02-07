@@ -20,6 +20,7 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate, NSFet
     }
     let searchController = UISearchController(searchResultsController: nil)
     var managerResults:NSFetchedResultsController<Aluno>?
+    var alunoviewController:AlunoViewController?
     
     // MARK: - View Lifecycle
 
@@ -31,6 +32,12 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate, NSFet
     }
     
     // MARK: - Métodos
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueEdit" {
+            alunoviewController = segue.destination as? AlunoViewController
+        }
+    }
     
     func configuraSearch() {
         self.searchController.searchBar.delegate = self
@@ -82,6 +89,11 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate, NSFet
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let selectedStudant = managerResults?.fetchedObjects! [indexPath.row] else { return  }
+        alunoviewController?.aluno = selectedStudant
     }
     
     // MARK: - FetchedResultsControllerDelegate

@@ -42,6 +42,7 @@
                                 <connections>
                                     <outlet property="imageAluno" destination="I1a-iL-YQH" id="dM3-yt-b69"/>
                                     <outlet property="labelNomeDoAluno" destination="oKL-i4-VS5" id="GFr-bb-rep"/>
+                                    <segue destination="ZY7-NM-Hup" kind="show" identifier="segueEdit" id="3Jf-lK-hM2"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -268,4 +269,7 @@
             <point key="canvasLocation" x="-519" y="116"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="3Jf-lK-hM2"/>
+    </inferredMetricsTieBreakers>
 </document>
