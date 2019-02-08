@@ -21,6 +21,7 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate, NSFet
     let searchController = UISearchController(searchResultsController: nil)
     var managerResults:NSFetchedResultsController<Aluno>?
     var alunoviewController:AlunoViewController?
+    var message = Message()
     
     // MARK: - View Lifecycle
 
@@ -63,10 +64,14 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate, NSFet
     
     @objc func openActionSheet(_ longPress: UILongPressGestureRecognizer) {
         if longPress.state == .began {
+            guard let selectedStudent = managerResults?.fetchedObjects?[(longPress.view?.tag)!] else { return }
             let menu = MenuStudantOptions().configMenuStudantOptions { (option) in
                 switch option {
                 case .sms:
-                    print("SMS")
+                    if let messageComponent = self.message.configSMS(selectedStudent) {
+                        messageComponent.messageComposeDelegate = self.message
+                        self.present(messageComponent, animated: true, completion: nil)
+                    }
                 }
             }
             self.present(menu, animated: true, completion: nil)
