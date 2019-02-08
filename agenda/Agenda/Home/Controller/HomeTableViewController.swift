@@ -72,6 +72,14 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate, NSFet
                         messageComponent.messageComposeDelegate = self.message
                         self.present(messageComponent, animated: true, completion: nil)
                     }
+                    break
+                case .call:
+                    guard let numberOfStudent = selectedStudent.telefone else { return }
+                    if let url = URL(string: "tel://\(numberOfStudent)"), UIApplication.shared.canOpenURL(url) {
+                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                    }
+                    break
+                
                 }
             }
             self.present(menu, animated: true, completion: nil)
@@ -88,6 +96,7 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate, NSFet
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "celula-aluno", for: indexPath) as! HomeTableViewCell
+        cell.tag = indexPath.row
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(openActionSheet(_:)))
         guard let aluno = managerResults?.fetchedObjects![indexPath.row] else { return cell }
         cell.configStudant(aluno)

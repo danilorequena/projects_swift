@@ -10,6 +10,7 @@ import UIKit
 
 enum MenuActionSheetStudant {
     case sms
+    case call
 }
 
 class MenuStudantOptions: NSObject {
@@ -18,9 +19,15 @@ class MenuStudantOptions: NSObject {
         let sms = UIAlertAction(title: "enviar sms", style: .default) { (action) in
             complition(.sms)
         }
+       
+        let call = UIAlertAction(title: "📞Ligar", style: .default) { (action) in
+            complition(.call)
+        }
+        
         let cancel = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
         menu.addAction(sms)
         menu.addAction(cancel)
+        menu.addAction(call)
         
         return menu
     }
