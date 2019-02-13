@@ -127,4 +127,11 @@ class AlunoViewController: UIViewController, ImagePickerSelectedPhoto {
         }
     }
     
+    @IBAction func buttonShare(_ sender: UIButton){
+        guard let name = textFieldNome.text else { return }
+        let activityViewController = UIActivityViewController(activityItems: [name], applicationActivities: nil)
+        present(activityViewController, animated: true, completion: nil)
+    }
+    
 }
+

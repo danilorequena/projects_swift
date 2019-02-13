@@ -101,6 +101,8 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate, NSFet
                     self.navigationController?.pushViewController(map, animated: true)
                     
                     break
+                    
+                
                 
                 }
             }
@@ -134,20 +136,28 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate, NSFet
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            guard let selectedStudant = managerResults?.fetchedObjects! [indexPath.row] else {return}
-            context.delete(selectedStudant)
-            
-            do {
-                try context.save()
-            } catch {
-                print(error.localizedDescription)
+            LocationAuthenticity().autorizationUser { (authenticated) in
+                DispatchQueue.main.async {
+                    if authenticated {
+                        guard let selectedStudant = self.managerResults?.fetchedObjects! [indexPath.row] else {return}
+                        self.context.delete(selectedStudant)
+                        
+                        do {
+                            try self.context.save()
+                        } catch {
+                            print(error.localizedDescription)
+                        }
+                    }
+                }
+                
             }
-           
+        
+            
             
             
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -179,5 +189,7 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate, NSFet
         }
         
     }
+    
+    
     
 }
