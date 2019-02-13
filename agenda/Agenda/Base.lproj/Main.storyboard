@@ -53,7 +53,11 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Agenda" id="aoB-Jw-lAm">
                         <barButtonItem key="backBarButtonItem" title=" " id="M57-Hv-I3X"/>
-                        <barButtonItem key="leftBarButtonItem" systemItem="bookmarks" id="dzi-1s-s3a"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="bookmarks" id="dzi-1s-s3a">
+                            <connections>
+                                <action selector="buttonCalculateAverage:" destination="Qhi-kM-lyB" id="JPR-qh-Jmp"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="4cp-jd-Mnv">
                             <connections>
                                 <segue destination="ZY7-NM-Hup" kind="show" id="tio-sZ-JlU"/>

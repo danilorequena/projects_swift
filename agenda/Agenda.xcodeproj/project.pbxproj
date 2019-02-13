@@ -19,6 +19,7 @@
 		FF0D6593220DA90900004A94 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0D6592220DA90900004A94 /* Message.swift */; };
 		FF0D6595220DD9A500004A94 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0D6594220DD9A500004A94 /* Localization.swift */; };
 		FF8097A22212FA0400E9DC68 /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8097A12212FA0400E9DC68 /* MapsViewController.swift */; };
+		FF8097A522143A5000E9DC68 /* CalculateAverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8097A422143A5000E9DC68 /* CalculateAverage.swift */; };
 		FFB697F2220B604900011355 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB697F1220B604900011355 /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		FF0D6592220DA90900004A94 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		FF0D6594220DD9A500004A94 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		FF8097A12212FA0400E9DC68 /* MapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
+		FF8097A422143A5000E9DC68 /* CalculateAverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateAverage.swift; sourceTree = "<group>"; };
 		FFB697F1220B604900011355 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,6 +89,7 @@
 		03AA17621FC8433E003CB2B8 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				FF8097A322143A0900E9DC68 /* Model */,
 				03AA17641FC8433E003CB2B8 /* View */,
 				03AA17631FC8433E003CB2B8 /* Controller */,
 			);
@@ -147,6 +150,14 @@
 				FF8097A12212FA0400E9DC68 /* MapsViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		FF8097A322143A0900E9DC68 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FF8097A422143A5000E9DC68 /* CalculateAverage.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		FFB82CC8220B571200F768E4 /* Components */ = {
@@ -239,6 +250,7 @@
 				FFB697F2220B604900011355 /* ImagePicker.swift in Sources */,
 				FF8097A22212FA0400E9DC68 /* MapsViewController.swift in Sources */,
 				03AA17681FC843B1003CB2B8 /* HomeTableViewCell.swift in Sources */,
+				FF8097A522143A5000E9DC68 /* CalculateAverage.swift in Sources */,
 				FF0D6593220DA90900004A94 /* Message.swift in Sources */,
 				FF0D6591220C9C1000004A94 /* MenuStudantOptions.swift in Sources */,
 				03AA174E1FC84154003CB2B8 /* AppDelegate.swift in Sources */,

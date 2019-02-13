@@ -167,5 +167,10 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate, NSFet
             tableView.reloadData()
         }
     }
-
+   
+    @IBAction func buttonCalculateAverage(_ sender: UIBarButtonItem) {
+        CalculateAverage().calculateAverageGeneralStudents()
+        
+    }
+    
 }
