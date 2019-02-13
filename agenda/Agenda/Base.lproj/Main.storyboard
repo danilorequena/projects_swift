@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Agenda-->
+        <!--Alunos-->
         <scene sceneID="VnG-HC-eXo">
             <objects>
                 <tableViewController id="Qhi-kM-lyB" customClass="HomeTableViewController" customModule="Agenda" customModuleProvider="target" sceneMemberID="viewController">
@@ -51,7 +51,7 @@
                             <outlet property="delegate" destination="Qhi-kM-lyB" id="znM-nG-z7e"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Agenda" id="aoB-Jw-lAm">
+                    <navigationItem key="navigationItem" title="Alunos" id="aoB-Jw-lAm">
                         <barButtonItem key="backBarButtonItem" title=" " id="M57-Hv-I3X"/>
                         <barButtonItem key="leftBarButtonItem" systemItem="bookmarks" id="dzi-1s-s3a">
                             <connections>
