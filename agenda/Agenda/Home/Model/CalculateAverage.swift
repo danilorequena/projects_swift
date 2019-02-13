@@ -10,20 +10,31 @@ import UIKit
 
 class CalculateAverage: NSObject {
     
-    func calculateAverageGeneralStudents() {
+    func calculateAverageGeneralStudents(alunos: Array<Aluno>, sucesso: @escaping(
+        _ dictionaryAverage:Dictionary<String, Any>) -> Void, falha: @escaping(_ error:Error) -> Void) {
         guard let url = URL(string: "https://www.caelum.com.br/mobile") else {return}
         var listStudents: Array<Dictionary<String, Any>> = []
         var json: Dictionary<String, Any> = [:]
         
-        let dictionaryStudents = [
-            "id": "1",
-            "nome": "Danilo",
-            "endereco": "Rua Ali perto, São Paulo",
-            "telefone": "9999-8989",
-            "site": "www.alura.com.br",
-            "nota": "9"
-        ]
-        listStudents.append(dictionaryStudents as [String:Any])
+        for aluno in alunos {
+        
+            guard let nome = aluno.nome else {break}
+            guard let endereco = aluno.endereco else {break}
+            guard let telefone = aluno.telefone else {break}
+            guard let site = aluno.site else {break}
+            
+            let dictionaryStudents = [
+                "id": "\(aluno.objectID)",
+                "nome": nome,
+                "endereco": endereco,
+                "telefone": telefone,
+                "site": site,
+                "nota": String(aluno.nota)
+            ]
+            listStudents.append(dictionaryStudents as [String:Any])
+        }
+        
+        
         
         json = [
             "list": [
@@ -42,10 +53,10 @@ class CalculateAverage: NSObject {
             let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
                 if error == nil {
                     do {
-                        let dictionary = try JSONSerialization.jsonObject(with: data!, options: [])
-                        print(dictionary)
+                        let dictionary = try JSONSerialization.jsonObject(with: data!, options: []) as! Dictionary<String, Any>
+                        sucesso(dictionary)
                     } catch {
-                        print(error.localizedDescription)
+                        falha(error)
                     }
                     
                     

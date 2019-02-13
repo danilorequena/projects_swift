@@ -20,6 +20,7 @@
 		FF0D6595220DD9A500004A94 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0D6594220DD9A500004A94 /* Localization.swift */; };
 		FF8097A22212FA0400E9DC68 /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8097A12212FA0400E9DC68 /* MapsViewController.swift */; };
 		FF8097A522143A5000E9DC68 /* CalculateAverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8097A422143A5000E9DC68 /* CalculateAverage.swift */; };
+		FF8097A72214787F00E9DC68 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8097A62214787F00E9DC68 /* Notifications.swift */; };
 		FFB697F2220B604900011355 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB697F1220B604900011355 /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		FF0D6594220DD9A500004A94 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		FF8097A12212FA0400E9DC68 /* MapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
 		FF8097A422143A5000E9DC68 /* CalculateAverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateAverage.swift; sourceTree = "<group>"; };
+		FF8097A62214787F00E9DC68 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		FFB697F1220B604900011355 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -167,6 +169,7 @@
 				FF0D6590220C9C1000004A94 /* MenuStudantOptions.swift */,
 				FF0D6592220DA90900004A94 /* Message.swift */,
 				FF0D6594220DD9A500004A94 /* Localization.swift */,
+				FF8097A62214787F00E9DC68 /* Notifications.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF8097A72214787F00E9DC68 /* Notifications.swift in Sources */,
 				03AA176D1FC8515A003CB2B8 /* AlunoViewController.swift in Sources */,
 				03AA17661FC84353003CB2B8 /* HomeTableViewController.swift in Sources */,
 				FF0D6595220DD9A500004A94 /* Localization.swift in Sources */,

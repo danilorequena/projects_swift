@@ -169,7 +169,14 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate, NSFet
     }
    
     @IBAction func buttonCalculateAverage(_ sender: UIBarButtonItem) {
-        CalculateAverage().calculateAverageGeneralStudents()
+        guard let listStudent = managerResults?.fetchedObjects else { return }
+        CalculateAverage().calculateAverageGeneralStudents(alunos: listStudent, sucesso: { (dictionary) in
+            if let alert = Notifications().showNotificationAverageStudents(dictionaryAverage: dictionary) {
+                self.present(alert, animated: true, completion: nil)
+            }
+        }) { (error) in
+            print(error.localizedDescription)
+        }
         
     }
     
