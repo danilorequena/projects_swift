@@ -12,6 +12,7 @@ enum MenuActionSheetStudant {
     case sms
     case call
     case waze
+    case mapas
     
 }
 class MenuStudantOptions: NSObject {
@@ -32,8 +33,14 @@ class MenuStudantOptions: NSObject {
         }
         menu.addAction(waze)
         
+        let mapas = UIAlertAction(title: "Mapas", style: .default) { (action) in
+            complition(.mapas)
+        }
+        menu.addAction(mapas)
+        
         let cancel = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
         menu.addAction(cancel)
+        
        
         
         return menu

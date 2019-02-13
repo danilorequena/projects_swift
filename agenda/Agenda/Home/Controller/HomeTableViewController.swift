@@ -88,11 +88,17 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate, NSFet
                             let latitude = String(describing: localizationFinded.location!.coordinate.latitude)
                             let longitude = String(describing: localizationFinded.location!.coordinate.longitude)
                             let url: String = "waze://?ll=\(latitude),\(longitude)&navigate=yes"
-                            UIApplication.shared.open(URL(string: url), options: [:], completionHandler: nil)
-                            //Terminar de implementar
+                            UIApplication.shared.open(URL(string: url)!, options: [:], completionHandler: nil)
+                            
                         })
                     }
+                    break
                     
+                case .mapas:
+                    
+                    let map = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Maps") as! MapsViewController
+                    map.aluno = selectedStudent
+                    self.navigationController?.pushViewController(map, animated: true)
                     
                     break
                 

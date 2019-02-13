@@ -18,6 +18,7 @@
 		FF0D6591220C9C1000004A94 /* MenuStudantOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0D6590220C9C1000004A94 /* MenuStudantOptions.swift */; };
 		FF0D6593220DA90900004A94 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0D6592220DA90900004A94 /* Message.swift */; };
 		FF0D6595220DD9A500004A94 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0D6594220DD9A500004A94 /* Localization.swift */; };
+		FF8097A22212FA0400E9DC68 /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8097A12212FA0400E9DC68 /* MapsViewController.swift */; };
 		FFB697F2220B604900011355 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB697F1220B604900011355 /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		FF0D6590220C9C1000004A94 /* MenuStudantOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuStudantOptions.swift; sourceTree = "<group>"; };
 		FF0D6592220DA90900004A94 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		FF0D6594220DD9A500004A94 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
+		FF8097A12212FA0400E9DC68 /* MapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
 		FFB697F1220B604900011355 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,6 +73,7 @@
 				03AA174D1FC84154003CB2B8 /* AppDelegate.swift */,
 				03AA17621FC8433E003CB2B8 /* Home */,
 				03AA17691FC84A2D003CB2B8 /* Alunos */,
+				FF80979F2212F9A200E9DC68 /* Mapas */,
 				FFB82CC8220B571200F768E4 /* Components */,
 				03AA17511FC84154003CB2B8 /* Main.storyboard */,
 				03AA17571FC84154003CB2B8 /* Assets.xcassets */,
@@ -128,6 +131,22 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		FF80979F2212F9A200E9DC68 /* Mapas */ = {
+			isa = PBXGroup;
+			children = (
+				FF8097A02212F9C400E9DC68 /* Controllers */,
+			);
+			path = Mapas;
+			sourceTree = "<group>";
+		};
+		FF8097A02212F9C400E9DC68 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FF8097A12212FA0400E9DC68 /* MapsViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		FFB82CC8220B571200F768E4 /* Components */ = {
@@ -218,6 +237,7 @@
 				FF0D6595220DD9A500004A94 /* Localization.swift in Sources */,
 				03AA17561FC84154003CB2B8 /* Agenda.xcdatamodeld in Sources */,
 				FFB697F2220B604900011355 /* ImagePicker.swift in Sources */,
+				FF8097A22212FA0400E9DC68 /* MapsViewController.swift in Sources */,
 				03AA17681FC843B1003CB2B8 /* HomeTableViewCell.swift in Sources */,
 				FF0D6593220DA90900004A94 /* Message.swift in Sources */,
 				FF0D6591220C9C1000004A94 /* MenuStudantOptions.swift in Sources */,

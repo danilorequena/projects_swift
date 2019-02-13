@@ -252,6 +252,35 @@
             </objects>
             <point key="canvasLocation" x="1189.5999999999999" y="115.59220389805098"/>
         </scene>
+        <!--Maps View Controller-->
+        <scene sceneID="1hw-NE-3ws">
+            <objects>
+                <viewController storyboardIdentifier="Maps" id="Wae-a2-XE4" customClass="MapsViewController" customModule="Agenda" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0rq-1S-5xH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="IqJ-qc-LCd">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="IqJ-qc-LCd" firstAttribute="trailing" secondItem="wBb-0L-Stf" secondAttribute="trailing" id="2Be-3s-nRs"/>
+                            <constraint firstItem="IqJ-qc-LCd" firstAttribute="leading" secondItem="wBb-0L-Stf" secondAttribute="leading" id="EeV-jY-fMY"/>
+                            <constraint firstItem="IqJ-qc-LCd" firstAttribute="top" secondItem="wBb-0L-Stf" secondAttribute="top" id="RAh-Ab-PDw"/>
+                            <constraint firstItem="IqJ-qc-LCd" firstAttribute="bottom" secondItem="wBb-0L-Stf" secondAttribute="bottom" id="ZSU-YJ-yUP"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wBb-0L-Stf"/>
+                    </view>
+                    <connections>
+                        <outlet property="map" destination="IqJ-qc-LCd" id="z2c-yi-uwz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HmM-67-qlB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2008.8" y="114.69265367316342"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="yXs-rW-FGy">
             <objects>
