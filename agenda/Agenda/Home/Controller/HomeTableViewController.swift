@@ -46,10 +46,14 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate, NSFet
         self.navigationItem.searchController = searchController
     }
     
-    func catchStudent() {
+    func catchStudent(_ filter: String = "") {
         let searchStudent:NSFetchRequest<Aluno> = Aluno.fetchRequest()
         let orderByName = NSSortDescriptor(key: "nome", ascending: true)
         searchStudent.sortDescriptors = [orderByName]
+        
+        if verifyFilter(filter) {
+            searchStudent.predicate = studentFilter(filter)
+        }
         
         managerResults = NSFetchedResultsController(fetchRequest: searchStudent, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         managerResults?.delegate = self
@@ -60,6 +64,17 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate, NSFet
             print(error.localizedDescription)
         }
         
+    }
+    
+    func verifyFilter(_ filter: String) -> Bool {
+        if filter.isEmpty {
+            return false
+        }
+        return true
+    }
+    
+    func studentFilter(_ filter: String) -> NSPredicate {
+        return NSPredicate(format: "nome CONTAINS %@", filter)
     }
     
     @objc func openActionSheet(_ longPress: UILongPressGestureRecognizer) {
@@ -190,6 +205,17 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate, NSFet
         
     }
     
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let studentName = searchBar.text else { return }
+        catchStudent(studentName)
+        tableView.reloadData()
+        
+    }
     
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        catchStudent()
+        tableView.reloadData()
+        
+    }
     
 }
