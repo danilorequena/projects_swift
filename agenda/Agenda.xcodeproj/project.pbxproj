@@ -22,6 +22,7 @@
 		FF8097A522143A5000E9DC68 /* CalculateAverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8097A422143A5000E9DC68 /* CalculateAverage.swift */; };
 		FF8097A72214787F00E9DC68 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8097A62214787F00E9DC68 /* Notifications.swift */; };
 		FF8097AD2214931700E9DC68 /* LocationAuthenticity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8097AC2214931700E9DC68 /* LocationAuthenticity.swift */; };
+		FF8097B02215943400E9DC68 /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8097AF2215943400E9DC68 /* Pin.swift */; };
 		FFB697F2220B604900011355 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB697F1220B604900011355 /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		FF8097A422143A5000E9DC68 /* CalculateAverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateAverage.swift; sourceTree = "<group>"; };
 		FF8097A62214787F00E9DC68 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		FF8097AC2214931700E9DC68 /* LocationAuthenticity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAuthenticity.swift; sourceTree = "<group>"; };
+		FF8097AF2215943400E9DC68 /* Pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
 		FFB697F1220B604900011355 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -143,6 +145,7 @@
 		FF80979F2212F9A200E9DC68 /* Mapas */ = {
 			isa = PBXGroup;
 			children = (
+				FF8097AE2215941900E9DC68 /* Model */,
 				FF8097A02212F9C400E9DC68 /* Controllers */,
 			);
 			path = Mapas;
@@ -160,6 +163,14 @@
 			isa = PBXGroup;
 			children = (
 				FF8097A422143A5000E9DC68 /* CalculateAverage.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FF8097AE2215941900E9DC68 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FF8097AF2215943400E9DC68 /* Pin.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -256,6 +267,7 @@
 				03AA17561FC84154003CB2B8 /* Agenda.xcdatamodeld in Sources */,
 				FFB697F2220B604900011355 /* ImagePicker.swift in Sources */,
 				FF8097A22212FA0400E9DC68 /* MapsViewController.swift in Sources */,
+				FF8097B02215943400E9DC68 /* Pin.swift in Sources */,
 				03AA17681FC843B1003CB2B8 /* HomeTableViewCell.swift in Sources */,
 				FF8097A522143A5000E9DC68 /* CalculateAverage.swift in Sources */,
 				FF0D6593220DA90900004A94 /* Message.swift in Sources */,

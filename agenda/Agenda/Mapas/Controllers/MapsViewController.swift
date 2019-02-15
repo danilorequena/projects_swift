@@ -41,7 +41,8 @@ class MapsViewController: UIViewController {
     
     func initialLocalization() {
         Localization().convertAddressCoords(endereco: "BRQ - São Paulo") { (findedLocalization) in
-            let pin = self.configPin(title: "BRQ", localization: findedLocalization)
+//            let pin = self.configPin(title: "BRQ", localization: findedLocalization)
+            let pin = Localization().configPin(title: "BRQ", localization: findedLocalization, color: .red, icon: nil)
             let region = MKCoordinateRegionMakeWithDistance(pin.coordinate, 5000, 5000)
             self.map.setRegion(region, animated: true)
             self.map.addAnnotation(pin)
@@ -51,19 +52,14 @@ class MapsViewController: UIViewController {
     func studentLocalization() {
         if let aluno = aluno {
             Localization().convertAddressCoords(endereco: aluno.endereco!) { (findedLocalization) in
-                let pin = self.configPin(title: aluno.nome!, localization: findedLocalization)
+//                let pin = self.configPin(title: aluno.nome!, localization: findedLocalization)
+                let pin = Localization().configPin(title: aluno.nome!, localization: findedLocalization, color: nil, icon: nil)
                 self.map.addAnnotation(pin)
             }
         }
     }
     
-    func configPin(title: String, localization: CLPlacemark) -> MKPointAnnotation {
-        let pin = MKPointAnnotation()
-        pin.title = title
-        pin.coordinate = localization.location!.coordinate
-        
-        return pin
-    }
+    
 
 
 

@@ -19,5 +19,14 @@ class Localization: NSObject {
             }
         }
     }
+    
+    func configPin(title: String, localization: CLPlacemark, color: UIColor?, icon: UIImage?) -> Pin {
+        let pin = Pin(coordinate: localization.location!.coordinate)
+        pin.title = title
+        pin.color = color
+        pin.icon = icon
+        
+        return pin
+    }
 
 }
