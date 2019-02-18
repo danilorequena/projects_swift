@@ -20,6 +20,7 @@ class MapsViewController: UIViewController {
     //MARK: - Variaveis
     
     var aluno: Aluno?
+    lazy var localization = Localization()
     
     
     //MARK: - Life Cycle
@@ -29,6 +30,7 @@ class MapsViewController: UIViewController {
         self.navigationItem.title = getTitle()
         initialLocalization()
         studentLocalization()
+        map.delegate = localization
 
     }
     
@@ -42,7 +44,7 @@ class MapsViewController: UIViewController {
     func initialLocalization() {
         Localization().convertAddressCoords(endereco: "BRQ - São Paulo") { (findedLocalization) in
 //            let pin = self.configPin(title: "BRQ", localization: findedLocalization)
-            let pin = Localization().configPin(title: "BRQ", localization: findedLocalization, color: .red, icon: nil)
+            let pin = Localization().configPin(title: "BRQ", localization: findedLocalization, color: .black, icon: nil)
             let region = MKCoordinateRegionMakeWithDistance(pin.coordinate, 5000, 5000)
             self.map.setRegion(region, animated: true)
             self.map.addAnnotation(pin)
@@ -58,6 +60,8 @@ class MapsViewController: UIViewController {
             }
         }
     }
+    
+   
     
     
 

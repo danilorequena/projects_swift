@@ -7,9 +7,9 @@
 //
 
 import UIKit
-import CoreLocation
+import MapKit
 
-class Localization: NSObject {
+class Localization: NSObject, MKMapViewDelegate {
     
     func convertAddressCoords(endereco:String, local: @escaping(_ local: CLPlacemark)-> Void) {
         let converter = CLGeocoder()
@@ -27,6 +27,22 @@ class Localization: NSObject {
         pin.icon = icon
         
         return pin
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is Pin {
+            let annotationView = annotation as! Pin
+            var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationView.title!) as? MKMarkerAnnotationView
+            pinView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: annotationView.title)
+            
+            pinView?.annotation = annotationView
+            pinView?.glyphImage = annotationView.icon
+            pinView?.markerTintColor = annotationView.color
+            
+            return pinView
+        }
+        
+        return nil
     }
 
 }
