@@ -117,6 +117,19 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate, NSFet
                     
                     break
                     
+                case .openPagesWeb:
+                    if let studentUrl = selectedStudent.site {
+                        
+                        var formatedUrl = studentUrl
+                        if !formatedUrl.hasPrefix("http://") {
+                            formatedUrl = String(format: "http://%@", formatedUrl)
+                        }
+                        
+                        guard let url = URL(string: formatedUrl) else {return}
+                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                        
+                    }
+                    
                 
                 
                 }

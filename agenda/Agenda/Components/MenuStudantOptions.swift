@@ -13,6 +13,7 @@ enum MenuActionSheetStudant {
     case call
     case waze
     case mapas
+    case openPagesWeb
     
     
 }
@@ -41,6 +42,11 @@ class MenuStudantOptions: NSObject {
         
         let cancel = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
         menu.addAction(cancel)
+        
+        let openPagesWeb = UIAlertAction(title: "Abrir Página da Web", style: .default) { (action) in
+            complition(.openPagesWeb)
+        }
+        menu.addAction(openPagesWeb)
         
        
         
