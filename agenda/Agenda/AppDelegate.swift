@@ -9,8 +9,14 @@
 import UIKit
 import CoreData
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    enum ShortcutType: String {
+        case cadastrarAluno  = "Cadastrar Aluno"
+    }
+    
 
     var window: UIWindow?
 
@@ -42,6 +48,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
+    }
+    
+    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+        if let type = ShortcutType(rawValue: shortcutItem.type) {
+            switch type {
+            case .cadastrarAluno:
+                let cadastrarAluno = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "cadastrar")
+                let navigation = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController
+                navigation?.pushViewController(cadastrarAluno, animated: true)
+                
+                break
+            }
+        }
     }
 
     // MARK: - Core Data stack

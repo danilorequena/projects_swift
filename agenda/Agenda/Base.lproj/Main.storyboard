@@ -53,11 +53,18 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Alunos" id="aoB-Jw-lAm">
                         <barButtonItem key="backBarButtonItem" title=" " id="M57-Hv-I3X"/>
-                        <barButtonItem key="leftBarButtonItem" systemItem="bookmarks" id="dzi-1s-s3a">
-                            <connections>
-                                <action selector="buttonCalculateAverage:" destination="Qhi-kM-lyB" id="JPR-qh-Jmp"/>
-                            </connections>
-                        </barButtonItem>
+                        <leftBarButtonItems>
+                            <barButtonItem systemItem="bookmarks" id="dzi-1s-s3a">
+                                <connections>
+                                    <action selector="buttonCalculateAverage:" destination="Qhi-kM-lyB" id="JPR-qh-Jmp"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="search" id="FxE-Lf-rPV">
+                                <connections>
+                                    <action selector="buttonGeneralLocalization:" destination="Qhi-kM-lyB" id="gAI-Nr-vxr"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="4cp-jd-Mnv">
                             <connections>
                                 <segue destination="ZY7-NM-Hup" kind="show" id="tio-sZ-JlU"/>
@@ -72,7 +79,7 @@
         <!--Aluno View Controller-->
         <scene sceneID="eVt-59-5bJ">
             <objects>
-                <viewController id="ZY7-NM-Hup" customClass="AlunoViewController" customModule="Agenda" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="cadastrar" id="ZY7-NM-Hup" customClass="AlunoViewController" customModule="Agenda" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="daU-O4-U0H">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

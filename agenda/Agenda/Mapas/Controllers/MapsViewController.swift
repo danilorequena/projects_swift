@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class MapsViewController: UIViewController {
+class MapsViewController: UIViewController, CLLocationManagerDelegate {
 
     //MARK: - IBOutlets
     
@@ -21,6 +21,7 @@ class MapsViewController: UIViewController {
     
     var aluno: Aluno?
     lazy var localization = Localization()
+    lazy var managerLocalization = CLLocationManager()
     
     
     //MARK: - Life Cycle
@@ -29,8 +30,9 @@ class MapsViewController: UIViewController {
         super.viewDidLoad()
         self.navigationItem.title = getTitle()
         initialLocalization()
-        studentLocalization()
+        verifyAutorizationUser()
         map.delegate = localization
+        managerLocalization.delegate = self
 
     }
     
@@ -41,6 +43,27 @@ class MapsViewController: UIViewController {
         return "Localizar Alunos"
     }
     
+    func verifyAutorizationUser() {
+        if CLLocationManager.locationServicesEnabled() {
+            switch CLLocationManager.authorizationStatus() {
+            case .authorizedWhenInUse:
+                let button = Localization().configButtonLocalizationCurrent(map: map)
+                map.addSubview(button)
+                managerLocalization.startUpdatingLocation()
+                break
+            case .notDetermined:
+                managerLocalization.requestWhenInUseAuthorization()
+                
+                break
+            case .denied:
+                
+                break
+            default:
+                break
+            }
+        }
+    }
+    
     func initialLocalization() {
         Localization().convertAddressCoords(endereco: "BRQ - São Paulo") { (findedLocalization) in
 //            let pin = self.configPin(title: "BRQ", localization: findedLocalization)
@@ -48,6 +71,7 @@ class MapsViewController: UIViewController {
             let region = MKCoordinateRegionMakeWithDistance(pin.coordinate, 5000, 5000)
             self.map.setRegion(region, animated: true)
             self.map.addAnnotation(pin)
+            self.studentLocalization()
         }
     }
     
@@ -57,8 +81,26 @@ class MapsViewController: UIViewController {
 //                let pin = self.configPin(title: aluno.nome!, localization: findedLocalization)
                 let pin = Localization().configPin(title: aluno.nome!, localization: findedLocalization, color: nil, icon: nil)
                 self.map.addAnnotation(pin)
+                self.map.showAnnotations(self.map.annotations, animated: true)
             }
         }
+    }
+    
+    //MARK: - CLLocationManagerDelegate
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .authorizedWhenInUse:
+            let button = Localization().configButtonLocalizationCurrent(map: map)
+            map.addSubview(button)
+            managerLocalization.startUpdatingLocation()
+        default:
+            break
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print(locations)
     }
     
    

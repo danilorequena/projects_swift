@@ -29,6 +29,15 @@ class Localization: NSObject, MKMapViewDelegate {
         return pin
     }
     
+    func configButtonLocalizationCurrent(map: MKMapView) -> MKUserTrackingButton {
+        let button = MKUserTrackingButton(mapView: map)
+        button.frame.origin.x = 10
+        button.frame.origin.y = 10
+        
+        
+        return button
+    }
+    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is Pin {
             let annotationView = annotation as! Pin

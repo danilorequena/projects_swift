@@ -204,6 +204,10 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate, NSFet
         }
         
     }
+    @IBAction func buttonGeneralLocalization(_ sender: UIBarButtonItem) {
+        let mapa = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Maps") as! MapsViewController
+        navigationController?.pushViewController(mapa, animated: true)
+    }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let studentName = searchBar.text else { return }
