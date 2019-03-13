@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CoreData
 
 class AlunoViewController: UIViewController, ImagePickerSelectedPhoto {
     
@@ -26,11 +25,7 @@ class AlunoViewController: UIViewController, ImagePickerSelectedPhoto {
     
     // MARK: - Atributes
     
-    var context: NSManagedObjectContext {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        
-        return appDelegate.persistentContainer.viewContext
-    }
+   
     let imagePicker = ImagePicker()
     var aluno:Aluno?
     
@@ -71,6 +66,25 @@ class AlunoViewController: UIViewController, ImagePickerSelectedPhoto {
         self.scrollViewPrincipal.contentSize = CGSize(width: self.scrollViewPrincipal.frame.width, height: self.scrollViewPrincipal.frame.height + self.scrollViewPrincipal.frame.height/2)
     }
     
+    func mountDictionaryParameters() -> Dictionary<String, String> {
+        
+        guard let name = textFieldNome.text else { return [:] }
+        guard let address = textFieldEndereco.text else { return [:] }
+        guard let tel = textFieldTelefone.text else { return [:] }
+        guard let site = textFieldSite.text else { return [:] }
+        guard let nota = textFieldNota.text else { return [:] }
+        
+        let dictionary: Dictionary<String, String> = [
+            "id" : String(describing: UUID()),
+            "nome" : name,
+            "endereco" : address,
+            "telefone" : tel,
+            "site" : site,
+            "nota" : nota
+        ]
+        return dictionary
+    }
+    
     //MARK: - Delegate
     
     func imagePickerSelectedPhoto(_ picture: UIImage) {
@@ -108,24 +122,12 @@ class AlunoViewController: UIViewController, ImagePickerSelectedPhoto {
     }
     
     @IBAction func buttonSave(_ sender: UIButton) {
-//        let aluno = Aluno(context: context)
-        if aluno == nil {
-            aluno = Aluno(context: context)
-        }
-        aluno?.nome = textFieldNome.text
-        aluno?.endereco = textFieldEndereco.text
-        aluno?.telefone = textFieldTelefone.text
-        aluno?.site = textFieldSite.text
-        aluno?.nota = (textFieldNota.text! as NSString).doubleValue
-        aluno?.foto = imageAluno.image
         
-        do {
-            try context.save()
-            navigationController?.popViewController(animated: true)
-        } catch {
-            print(error.localizedDescription)
+        let json = mountDictionaryParameters()
+        
+        Repository().saveStudent(aluno: json)
+        navigationController?.popViewController(animated: true)
         }
-    }
     
     @IBAction func buttonShare(_ sender: UIButton){
         guard let name = textFieldNome.text else { return }
