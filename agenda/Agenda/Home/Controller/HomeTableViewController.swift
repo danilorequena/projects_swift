@@ -10,27 +10,24 @@ import UIKit
 import CoreData
 import SafariServices
 
-class HomeTableViewController: UITableViewController, UISearchBarDelegate, NSFetchedResultsControllerDelegate {
+class HomeTableViewController: UITableViewController, UISearchBarDelegate {
     
     //MARK: - Variáveis
-    
-    var context: NSManagedObjectContext {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        
-        return appDelegate.persistentContainer.viewContext
-    }
+
     let searchController = UISearchController(searchResultsController: nil)
-    var managerResults:NSFetchedResultsController<Aluno>?
     var alunoviewController:AlunoViewController?
     var message = Message()
+    var students: Array<Aluno> = []
     
     // MARK: - View Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configuraSearch()
-        self.catchStudent()
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        catchStudent()
     }
     
     // MARK: - Métodos
@@ -41,46 +38,23 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate, NSFet
         }
     }
     
+    func catchStudent() {
+        Repository().catchStudents { (listOfStudent) in
+            self.students = listOfStudent
+            self.tableView.reloadData()
+
+        }
+    }
+    
     func configuraSearch() {
         self.searchController.searchBar.delegate = self
         self.searchController.dimsBackgroundDuringPresentation = false
         self.navigationItem.searchController = searchController
     }
     
-    func catchStudent(_ filter: String = "") {
-        let searchStudent:NSFetchRequest<Aluno> = Aluno.fetchRequest()
-        let orderByName = NSSortDescriptor(key: "nome", ascending: true)
-        searchStudent.sortDescriptors = [orderByName]
-        
-        if verifyFilter(filter) {
-            searchStudent.predicate = studentFilter(filter)
-        }
-        
-        managerResults = NSFetchedResultsController(fetchRequest: searchStudent, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
-        managerResults?.delegate = self
-        
-        do{
-            try managerResults?.performFetch()
-        } catch {
-            print(error.localizedDescription)
-        }
-        
-    }
-    
-    func verifyFilter(_ filter: String) -> Bool {
-        if filter.isEmpty {
-            return false
-        }
-        return true
-    }
-    
-    func studentFilter(_ filter: String) -> NSPredicate {
-        return NSPredicate(format: "nome CONTAINS %@", filter)
-    }
-    
     @objc func openActionSheet(_ longPress: UILongPressGestureRecognizer) {
         if longPress.state == .began {
-            guard let selectedStudent = managerResults?.fetchedObjects?[(longPress.view?.tag)!] else { return }
+            let selectedStudent = students[(longPress.view?.tag)!]
             let menu = MenuStudantOptions().configMenuStudantOptions { (option) in
                 switch option {
                 case .sms:
@@ -144,17 +118,16 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate, NSFet
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let studantListCount = managerResults?.fetchedObjects?.count else { return 0 }
     
-        return studantListCount
+        return students.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "celula-aluno", for: indexPath) as! HomeTableViewCell
         cell.tag = indexPath.row
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(openActionSheet(_:)))
-        guard let aluno = managerResults?.fetchedObjects![indexPath.row] else { return cell }
-        cell.configStudant(aluno)
+        let student = students[indexPath.row]
+        cell.configStudant(student)
         cell.addGestureRecognizer(longPress)
         
 
@@ -168,16 +141,16 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate, NSFet
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             LocationAuthenticity().autorizationUser { (authenticated) in
-                DispatchQueue.main.async {
-                    if authenticated {
-                        guard let selectedStudant = self.managerResults?.fetchedObjects! [indexPath.row] else {return}
-                        self.context.delete(selectedStudant)
-                        
-                        do {
-                            try self.context.save()
-                        } catch {
-                            print(error.localizedDescription)
-                        }
+                if authenticated {
+                    DispatchQueue.main.async {
+//                        guard let selectedStudant = self.managerResults?.fetchedObjects! [indexPath.row] else {return}
+//                        self.context.delete(selectedStudant)
+//
+//                        do {
+//                            try self.context.save()
+//                        } catch {
+//                            print(error.localizedDescription)
+//                        }
                     }
                 }
                 
@@ -192,8 +165,8 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate, NSFet
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let selectedStudant = managerResults?.fetchedObjects! [indexPath.row] else { return  }
-        alunoviewController?.aluno = selectedStudant
+        let selectedStudent = students[indexPath.row]
+        alunoviewController?.aluno = selectedStudent
     }
     
     // MARK: - FetchedResultsControllerDelegate
@@ -210,8 +183,7 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate, NSFet
     }
    
     @IBAction func buttonCalculateAverage(_ sender: UIBarButtonItem) {
-        guard let listStudent = managerResults?.fetchedObjects else { return }
-        CalculateAverage().calculateAverageGeneralStudents(alunos: listStudent, sucesso: { (dictionary) in
+        CalculateAverage().calculateAverageGeneralStudents(alunos: students, sucesso: { (dictionary) in
             if let alert = Notifications().showNotificationAverageStudents(dictionaryAverage: dictionary) {
                 self.present(alert, animated: true, completion: nil)
             }
@@ -226,15 +198,12 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate, NSFet
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let studentName = searchBar.text else { return }
-        catchStudent(studentName)
-        tableView.reloadData()
+       
         
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        catchStudent()
-        tableView.reloadData()
+        
         
     }
     

@@ -14,7 +14,7 @@ class StudentAPI: NSObject {
     
     // MARK: GET
     
-    func recoverStudent() {
+    func recoverStudent(completion: @escaping() -> Void) {
         Alamofire.request("http://10.0.1.19:8080/api/aluno", method: .get).responseJSON { (response) in
             switch response.result {
             case .success:
@@ -23,11 +23,13 @@ class StudentAPI: NSObject {
                     for dicionarioDeAlunos in listOfStudents {
                         StudentDAO().saveStudent(alunoDictionary: dicionarioDeAlunos)
                     }
+                    completion()
                 }
                 
                 break
             case .failure:
                 print(response.error!)
+                completion()
                 break
             }
         }

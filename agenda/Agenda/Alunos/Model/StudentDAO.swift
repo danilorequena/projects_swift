@@ -11,10 +11,31 @@ import CoreData
 
 class StudentDAO: NSObject {
     
+    var managerResults:NSFetchedResultsController<Aluno>?
     var context: NSManagedObjectContext {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
         return appDelegate.persistentContainer.viewContext
+    }
+    
+    func catchStudent() -> Array<Aluno> {
+        let searchStudent:NSFetchRequest<Aluno> = Aluno.fetchRequest()
+        let orderByName = NSSortDescriptor(key: "nome", ascending: true)
+        searchStudent.sortDescriptors = [orderByName]
+        
+      
+        
+        managerResults = NSFetchedResultsController(fetchRequest: searchStudent, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        
+        do{
+            try managerResults?.performFetch()
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+        guard let listOfStudent = managerResults?.fetchedObjects else { return [] }
+        
+        return listOfStudent
     }
     
     func saveStudent(alunoDictionary: Dictionary<String, Any>) {
@@ -45,5 +66,7 @@ class StudentDAO: NSObject {
             print(error.localizedDescription)
         }
     }
+    
+    
 
 }
