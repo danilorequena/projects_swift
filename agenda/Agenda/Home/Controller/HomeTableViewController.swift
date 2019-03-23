@@ -79,7 +79,6 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate {
                             let longitude = String(describing: localizationFinded.location!.coordinate.longitude)
                             let url: String = "waze://?ll=\(latitude),\(longitude)&navigate=yes"
                             UIApplication.shared.open(URL(string: url)!, options: [:], completionHandler: nil)
-                            
                         })
                     }
                     break
@@ -89,12 +88,10 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate {
                     let map = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Maps") as! MapsViewController
                     map.aluno = selectedStudent
                     self.navigationController?.pushViewController(map, animated: true)
-                    
                     break
                     
                 case .openPagesWeb:
                     if let studentUrl = selectedStudent.site {
-                        
                         var formatedUrl = studentUrl
                         if !formatedUrl.hasPrefix("http://") {
                             formatedUrl = String(format: "http://%@", formatedUrl)
@@ -104,11 +101,6 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate {
                         let safariViewController = SFSafariViewController(url: url)
                         self.present(safariViewController, animated: true, completion: nil)
                     }
-                    
-                    
-                    
-                
-                
                 }
             }
             self.present(menu, animated: true, completion: nil)
