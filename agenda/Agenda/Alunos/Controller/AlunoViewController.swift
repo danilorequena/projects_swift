@@ -68,6 +68,14 @@ class AlunoViewController: UIViewController, ImagePickerSelectedPhoto {
     
     func mountDictionaryParameters() -> Dictionary<String, String> {
         
+        var id = ""
+        if aluno?.id == nil {
+            id = String(describing: UUID())
+        } else {
+            guard let idDoAlunoExistente = aluno?.id else { return [:] }
+            id = String(describing: idDoAlunoExistente)
+        }
+        
         guard let name = textFieldNome.text else { return [:] }
         guard let address = textFieldEndereco.text else { return [:] }
         guard let tel = textFieldTelefone.text else { return [:] }
@@ -75,7 +83,7 @@ class AlunoViewController: UIViewController, ImagePickerSelectedPhoto {
         guard let nota = textFieldNota.text else { return [:] }
         
         let dictionary: Dictionary<String, String> = [
-            "id" : String(describing: UUID()),
+            "id" : id.lowercased(),
             "nome" : name,
             "endereco" : address,
             "telefone" : tel,

@@ -39,24 +39,34 @@ class StudentDAO: NSObject {
     }
     
     func saveStudent(alunoDictionary: Dictionary<String, Any>) {
-        let aluno = Aluno(context: context)
+        var aluno:NSManagedObject?
+        guard let id = UUID(uuidString: alunoDictionary["id"] as! String) else { return }
         
-        aluno.nome = alunoDictionary["nome"] as? String
-        aluno.endereco = alunoDictionary["endereco"] as? String
-        aluno.telefone = alunoDictionary["telefone"] as? String
-        aluno.site = alunoDictionary["site"] as? String
+        let alunos = catchStudent().filter() { $0.id == id}
+        
+        if alunos.count > 0 {
+            guard let alunoEncontrado = alunos.first else {return}
+            aluno = alunoEncontrado
+        } else {
+            let entidade = NSEntityDescription.entity(forEntityName: "Aluno", in: context)
+            aluno = NSManagedObject(entity: entidade!, insertInto: context)
+        }
+        
+        aluno?.setValue(id, forKey: "id")
+        aluno?.setValue(alunoDictionary["nome"] as? String, forKey: "nome")
+        aluno?.setValue(alunoDictionary["endereco"] as? String, forKey: "endereco")
+        aluno?.setValue(alunoDictionary["telefone"] as? String, forKey: "telefone")
+        aluno?.setValue(alunoDictionary["site"] as? String, forKey: "site")
         
         guard let nota = alunoDictionary["nota"] else { return }
         if (nota is String) {
-            aluno.nota = (alunoDictionary["nota"] as! NSString).doubleValue
+            aluno?.setValue((alunoDictionary["nota"] as! NSString).doubleValue, forKey: "nota")
         } else {
             let conversaoNota = String(describing: nota)
-            aluno.nota = (conversaoNota as NSString).doubleValue
+            aluno?.setValue((conversaoNota as NSString).doubleValue, forKey: "nota")
         }
         
         refreshContext()
-        
-
     }
     
     func refreshContext() {
