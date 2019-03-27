@@ -135,14 +135,10 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate {
             LocationAuthenticity().autorizationUser { (authenticated) in
                 if authenticated {
                     DispatchQueue.main.async {
-//                        guard let selectedStudant = self.managerResults?.fetchedObjects! [indexPath.row] else {return}
-//                        self.context.delete(selectedStudant)
-//
-//                        do {
-//                            try self.context.save()
-//                        } catch {
-//                            print(error.localizedDescription)
-//                        }
+                        let alunoSelecionando = self.students[indexPath.row]
+                        Repository().deletaAluno(aluno: alunoSelecionando)
+                        self.students.remove(at: indexPath.row)
+                        self.tableView.deleteRows(at: [indexPath], with: .fade)
                     }
                 }
                 

@@ -69,6 +69,11 @@ class StudentDAO: NSObject {
         refreshContext()
     }
     
+    func deletaAluno(aluno:Aluno) {
+        context.delete(aluno)
+        refreshContext()
+    }
+    
     func refreshContext() {
         do {
             try context.save()
