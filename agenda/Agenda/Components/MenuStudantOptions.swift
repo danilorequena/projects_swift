@@ -8,35 +8,30 @@
 
 import UIKit
 
-enum MenuActionSheetStudant {
-    case sms
-    case call
-    case waze
-    case mapas
-    case openPagesWeb
-    
-    
-}
 class MenuStudantOptions: NSObject {
-    func configMenuStudantOptions(complition: @escaping(_ option: MenuActionSheetStudant) -> Void) -> UIAlertController {
+    func configMenuStudantOptions(navigation:UINavigationController, alunoSelecionado:Aluno) -> UIAlertController {
         let menu = UIAlertController(title: "Atenção", message: "escolha uma das opções abaixo:", preferredStyle: .actionSheet)
+        guard let viewController = navigation.viewControllers.last else { return menu }
         let sms = UIAlertAction(title: "enviar sms", style: .default) { (action) in
-            complition(.sms)
+            Message().sendSMS(alunoSelecionado, controller: viewController)
         }
         menu.addAction(sms)
        
         let call = UIAlertAction(title: "📞Ligar", style: .default) { (action) in
-            complition(.call)
+            LigacaoTelefonica().fazLigacao(alunoSelecionado)
         }
          menu.addAction(call)
         
         let waze = UIAlertAction(title: "Waze", style: .default) { (action) in
-            complition(.waze)
+            Localization().localizacaoWaze(alunoSelecionado)
         }
         menu.addAction(waze)
         
         let mapas = UIAlertAction(title: "Mapas", style: .default) { (action) in
-            complition(.mapas)
+            let map = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Maps") as! MapsViewController
+            map.aluno = alunoSelecionado
+           navigation.pushViewController(map, animated: true)
+
         }
         menu.addAction(mapas)
         
@@ -44,7 +39,7 @@ class MenuStudantOptions: NSObject {
         menu.addAction(cancel)
         
         let openPagesWeb = UIAlertAction(title: "Abrir Página da Web", style: .default) { (action) in
-            complition(.openPagesWeb)
+           Safari().abriPaginasWeb(alunoSelecionado, controller: viewController)
         }
         menu.addAction(openPagesWeb)
         

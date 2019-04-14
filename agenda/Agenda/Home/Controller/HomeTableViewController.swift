@@ -55,55 +55,9 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate {
     @objc func openActionSheet(_ longPress: UILongPressGestureRecognizer) {
         if longPress.state == .began {
             let selectedStudent = students[(longPress.view?.tag)!]
-            let menu = MenuStudantOptions().configMenuStudantOptions { (option) in
-                switch option {
-                case .sms:
-                    if let messageComponent = self.message.configSMS(selectedStudent) {
-                        messageComponent.messageComposeDelegate = self.message
-                        self.present(messageComponent, animated: true, completion: nil)
-                    }
-                    break
-                
-                case .call:
-                    guard let numberOfStudent = selectedStudent.telefone else { return }
-                    if let url = URL(string: "tel://\(numberOfStudent)"), UIApplication.shared.canOpenURL(url) {
-                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                    }
-                    break
-                    
-                case .waze:
-                    if UIApplication.shared.canOpenURL(URL(string: "waze://")!) {
-                        guard let addressStudent = selectedStudent.endereco else {return}
-                        Localization().convertAddressCoords(endereco: addressStudent, local: { (localizationFinded) in
-                            let latitude = String(describing: localizationFinded.location!.coordinate.latitude)
-                            let longitude = String(describing: localizationFinded.location!.coordinate.longitude)
-                            let url: String = "waze://?ll=\(latitude),\(longitude)&navigate=yes"
-                            UIApplication.shared.open(URL(string: url)!, options: [:], completionHandler: nil)
-                        })
-                    }
-                    break
-                    
-                case .mapas:
-                    
-                    let map = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Maps") as! MapsViewController
-                    map.aluno = selectedStudent
-                    self.navigationController?.pushViewController(map, animated: true)
-                    break
-                    
-                case .openPagesWeb:
-                    if let studentUrl = selectedStudent.site {
-                        var formatedUrl = studentUrl
-                        if !formatedUrl.hasPrefix("http://") {
-                            formatedUrl = String(format: "http://%@", formatedUrl)
-                        }
-                        
-                        guard let url = URL(string: formatedUrl) else {return}
-                        let safariViewController = SFSafariViewController(url: url)
-                        self.present(safariViewController, animated: true, completion: nil)
-                    }
-                }
-            }
-            self.present(menu, animated: true, completion: nil)
+            guard let navigation = navigationController else { return }
+            let menu = MenuStudantOptions().configMenuStudantOptions(navigation: navigation, alunoSelecionado: selectedStudent)
+            present(menu, animated: true, completion: nil)
         }
     }
 
@@ -156,20 +110,7 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate {
         let selectedStudent = students[indexPath.row]
         alunoviewController?.aluno = selectedStudent
     }
-    
-    // MARK: - FetchedResultsControllerDelegate
-    
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        switch type {
-        case .delete:
-            guard let indexPath = indexPath else {return}
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            break
-        default:
-            tableView.reloadData()
-        }
-    }
-   
+        
     @IBAction func buttonCalculateAverage(_ sender: UIBarButtonItem) {
         CalculateAverage().calculateAverageGeneralStudents(alunos: students, sucesso: { (dictionary) in
             if let alert = Notifications().showNotificationAverageStudents(dictionaryAverage: dictionary) {
@@ -186,13 +127,15 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-       
-        
+        if let texto = searchBar.text {
+            students = Filtro().filtraAlunos(listaDeAlunos: students, texto: texto)
+        }
+        tableView.reloadData()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        
-        
+        students = StudentDAO().catchStudent()
+        tableView.reloadData()
     }
     
 }

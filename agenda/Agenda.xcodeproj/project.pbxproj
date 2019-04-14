@@ -19,6 +19,8 @@
 		FF0D6591220C9C1000004A94 /* MenuStudantOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0D6590220C9C1000004A94 /* MenuStudantOptions.swift */; };
 		FF0D6593220DA90900004A94 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0D6592220DA90900004A94 /* Message.swift */; };
 		FF0D6595220DD9A500004A94 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0D6594220DD9A500004A94 /* Localization.swift */; };
+		FF2E7A22225198DB004E3325 /* LigacaoTelefonica.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2E7A21225198DB004E3325 /* LigacaoTelefonica.swift */; };
+		FF2E7A242251A805004E3325 /* Safari.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2E7A232251A805004E3325 /* Safari.swift */; };
 		FF8097A22212FA0400E9DC68 /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8097A12212FA0400E9DC68 /* MapsViewController.swift */; };
 		FF8097A522143A5000E9DC68 /* CalculateAverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8097A422143A5000E9DC68 /* CalculateAverage.swift */; };
 		FF8097A72214787F00E9DC68 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8097A62214787F00E9DC68 /* Notifications.swift */; };
@@ -28,6 +30,7 @@
 		FF9D13332239657700F99690 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9D13322239657700F99690 /* Repository.swift */; };
 		FF9D1335223966A600F99690 /* StudentDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9D1334223966A600F99690 /* StudentDAO.swift */; };
 		FFB697F2220B604900011355 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB697F1220B604900011355 /* ImagePicker.swift */; };
+		FFCC3A342262A7AA000191A3 /* Filtro.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCC3A332262A7AA000191A3 /* Filtro.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +50,8 @@
 		FF0D6590220C9C1000004A94 /* MenuStudantOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuStudantOptions.swift; sourceTree = "<group>"; };
 		FF0D6592220DA90900004A94 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		FF0D6594220DD9A500004A94 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
+		FF2E7A21225198DB004E3325 /* LigacaoTelefonica.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LigacaoTelefonica.swift; sourceTree = "<group>"; };
+		FF2E7A232251A805004E3325 /* Safari.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Safari.swift; sourceTree = "<group>"; };
 		FF8097A12212FA0400E9DC68 /* MapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
 		FF8097A422143A5000E9DC68 /* CalculateAverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateAverage.swift; sourceTree = "<group>"; };
 		FF8097A62214787F00E9DC68 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
@@ -56,6 +61,7 @@
 		FF9D13322239657700F99690 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		FF9D1334223966A600F99690 /* StudentDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentDAO.swift; sourceTree = "<group>"; };
 		FFB697F1220B604900011355 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		FFCC3A332262A7AA000191A3 /* Filtro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filtro.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +231,9 @@
 				FF0D6594220DD9A500004A94 /* Localization.swift */,
 				FF8097A62214787F00E9DC68 /* Notifications.swift */,
 				FF8097AC2214931700E9DC68 /* LocationAuthenticity.swift */,
+				FF2E7A21225198DB004E3325 /* LigacaoTelefonica.swift */,
+				FF2E7A232251A805004E3325 /* Safari.swift */,
+				FFCC3A332262A7AA000191A3 /* Filtro.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -353,15 +362,18 @@
 				FF8097A72214787F00E9DC68 /* Notifications.swift in Sources */,
 				03AA176D1FC8515A003CB2B8 /* AlunoViewController.swift in Sources */,
 				03AA17661FC84353003CB2B8 /* HomeTableViewController.swift in Sources */,
+				FFCC3A342262A7AA000191A3 /* Filtro.swift in Sources */,
 				FF0D6595220DD9A500004A94 /* Localization.swift in Sources */,
 				FF9D1331222F2B8200F99690 /* StudentAPI.swift in Sources */,
 				03AA17561FC84154003CB2B8 /* Agenda.xcdatamodeld in Sources */,
 				FFB697F2220B604900011355 /* ImagePicker.swift in Sources */,
 				FF9D1335223966A600F99690 /* StudentDAO.swift in Sources */,
 				FF8097A22212FA0400E9DC68 /* MapsViewController.swift in Sources */,
+				FF2E7A242251A805004E3325 /* Safari.swift in Sources */,
 				FF8097B02215943400E9DC68 /* Pin.swift in Sources */,
 				03AA17681FC843B1003CB2B8 /* HomeTableViewCell.swift in Sources */,
 				FF8097A522143A5000E9DC68 /* CalculateAverage.swift in Sources */,
+				FF2E7A22225198DB004E3325 /* LigacaoTelefonica.swift in Sources */,
 				FF9D13332239657700F99690 /* Repository.swift in Sources */,
 				FF0D6593220DA90900004A94 /* Message.swift in Sources */,
 				FF0D6591220C9C1000004A94 /* MenuStudantOptions.swift in Sources */,
